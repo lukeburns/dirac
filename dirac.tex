@@ -1,0 +1,92 @@
+\documentclass{article}
+\usepackage[margin=1.5in]{geometry}
+\usepackage{amsmath}
+
+\title{Admitting Photons Into The Dirac Equation}
+\author{Luke Burns}
+
+\begin{document}
+  \maketitle
+
+  \section{Generalizing the Dirac Equation}
+
+  Within STA, the free Dirac equation is typically written
+
+  \begin{equation}
+    \nabla \psi i = m \psi \gamma_0, \label{eq:dirac}
+  \end{equation}
+
+  where $\psi = \rho^{1/2} e^{I \beta / 2} R$.\footnote{See Geometric Algebra for Physicists (GAP) 8.86 and 8.87.} In general, we can define
+
+  \begin{equation}
+    p = m \psi \gamma_0 \psi^{-1} = m J / \rho, \label{eq:momentum}
+  \end{equation} 
+  
+  where $J = \psi \gamma_0 \widetilde{\psi}$ is the usual current density and $\rho$ the usual density, and rewrite Equation \ref{eq:dirac} as
+
+  \begin{equation}
+    \nabla \psi i = p \psi. \label{eq:dirac2}
+  \end{equation}
+
+  At first glance, it may seem that nothing has been done and we've just redefined terms. However, notice that Equation \ref{eq:dirac2} has a larger solution set than Equation \ref{eq:dirac}, since Definition \ref{eq:momentum} is only valid for massive particles.
+  
+  Conceptually, the Dirac equation describes particles in their rest frame, and $\psi$ contains a rotor $R$ which boosts $\gamma_0$ to the velocity $p/m$ in some lab frame. Except, there is no rest frame for massless particles. Equation \ref{eq:dirac2} minimally extends Equation \ref{eq:dirac} to admit a new class of null solutions.
+
+  \section{Null Plane Wave Solutions}
+
+  Equation \ref{eq:dirac2} admits null plane wave solutions of the form
+
+  \begin{equation}
+    \psi = \psi_0 e^{I p \cdot x}, \label{eq:null}
+  \end{equation}
+
+  where $p^2 = 0$ and $\psi_0 = \rho e^{I \beta}$ is constant. 
+
+  A circularly polarized electromagnetic plane relates to this equation in a direct manner. Right circularly polarized electromagnetic waves can be written in the form\footnote{See GAP 7.142}
+
+  \begin{equation}
+    F = I p n \psi,
+  \end{equation}
+
+  where $n^2 = 1$ and $n \cdot p = 0$. Then $F$ has a potential
+
+  \begin{equation}
+    A = \psi n,
+  \end{equation}
+
+  satisfying $F = \nabla A$,\footnote{This is different from the usual potential which defines $F = \nabla \wedge A$.} that is a solution to Equation \ref{eq:dirac2} in the following way:
+
+  \begin{align}
+    \nabla \psi &= \nabla A n \\
+                &= F n \\
+                &= I p \psi \\
+                &= -p i \psi,
+  \end{align}
+  
+  where $i = I \hat{p}$ is a spatial bivector, using the fact that null vectors are idempotent.\footnote{$p = \hbar \omega (1 + \hat p )\gamma_0 = \hbar \omega (1 + \hat p) \hat p \gamma_0 = - \hbar \omega (1 + \hat p) \gamma_0 \hat p = - p \hat p$} Hence,
+  
+  \begin{equation}
+      \nabla \psi i = p \psi.
+  \end{equation}
+
+  \section{Comments}
+  
+  What other solutions satisfy Equation \ref{eq:dirac2} but not Equation \ref{eq:dirac}?
+  
+  Do these solutions correspond to null solutions to the standard Dirac equation?
+  
+  How does the potential $A$ used above relate to the normal electromagnetic potential and the potential that plays the role of a connection in Dirac theory:
+
+  \begin{equation}
+    \nabla \psi i - e A \psi = m \psi \gamma_0?
+  \end{equation}
+  
+  Does the fact that these solutions arise out of purely a scalar+pseudoscalar spinor, which form a representation of U(1), have anything to do with the fact that electromagnetism is a U(1) gauge theory?
+  
+  $\psi$ defines $F$ up to specification of $n$, which determines the direction of electric and magnetic fields. $\psi$ is insufficient to fully characterize classical electromagnetic waves on its own. Is this a bug or a feature? Are the directions of $E$ and $B$ well defined quantum mechanically?
+  
+  In Dirac theory, the $e^{I \beta}$ factor in $\psi$ is a bit of a mystery and corresponds to particle/anti-particle states for plane-wave solutions for $\beta = 0$ and $\beta = \pi$. Here $e^{I (p \cdot x + \beta)}$ is not a mystery; it plays the role of phase and duality transformations.
+  
+  Is there a connection to Vaz and Rodriguez's approach, where $F$ is defined as a spinor current?\footnote{https://arxiv.org/pdf/hep-th/9511181v1.pdf}
+
+\end{document}
