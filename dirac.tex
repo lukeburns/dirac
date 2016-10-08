@@ -1,35 +1,128 @@
 \documentclass{article}
-\usepackage[margin=1.5in]{geometry}
+\usepackage[margin=1.25in]{geometry}
 \usepackage{amsmath}
+\usepackage{amsfonts}
 
-\title{Admitting Photons Into The Dirac Equation}
+\title{An Extension of the Dirac Equation}
 \author{Luke Burns}
 
 \begin{document}
   \maketitle
 
-  \section{Generalizing the Dirac Equation}
+  \section{Introduction}
 
-  The Dirac equation can be written 
+  The free Dirac equation in STA is
 
   \begin{equation}
-    \nabla \psi i = p \psi, \label{eq:dirac}
+    \nabla \psi I \sigma_3 = \hat p \psi, \label{eq:dirac}
   \end{equation}
 
-  where $\psi \in G_{1,3}^+$, $i$ is a constant unit bivector, and $p$ is a vector, such that\footnote{See GAP 8.86}
+  where $\psi \in G_{1,3}^+$ such that\footnote{See GAP 8.86}
 
   \begin{equation}
-    p \psi = m \psi \gamma_0. \label{eq:momentum}
+    \hat p \psi = m \psi \gamma_0. \label{eq:mass}
   \end{equation} 
 
   A less restrictive constraint is just that
 
   \begin{equation}
-    p^2 = m^2
+    \hat p^2 = m^2
   \end{equation}
 
-  be constant. This admits a new class of null solutions, where $m = 0$ but $p \psi \not = 0$. 
+  be constant. With this lightened restriction, Equation \ref{eq:mass} can be replaced with
 
-  This paper aims to make sense of this new class of solutions.
+  \begin{equation}
+    \hat p \psi = \psi p_0 \label{eq:momentum}
+  \end{equation}
+
+  where $p_0$ is a constant vector. This admits a new class of null solutions, where $\hat p^2 = 0$ but $\hat p \psi \not = 0$.\footnote{$\hat p$ is used in order to reserve $p$ for $p = R p_0 \widetilde R$.}
+
+  \section{Symmetries}
+
+  The extension of the full Dirac equation, including the electromagnetic gauge field
+
+  \begin{equation}
+    \nabla \psi I \sigma_3 - e A \psi = \psi p_0 \label{eq:full}
+  \end{equation}
+
+  is only invariant under the usual replacements $\psi \mapsto \psi e^{\alpha I \sigma_3}$ and $A \mapsto A - \nabla \alpha$ if 
+
+  \begin{equation}
+    p_0 \cdot I\sigma_3 = 0.
+  \end{equation} 
+
+  This is an essential feature of Dirac theory, so we'll restrict $p_0$ preserve it. We require that
+
+  \begin{equation}
+    p_0 = E \gamma_0 + |p| \gamma_3.
+  \end{equation} 
+
+  If $p_0^2 = m^2 \not= 0$, then 
+
+  \begin{equation}
+    p_0 = R m \gamma_0 \widetilde R
+  \end{equation} 
+
+  for $R = e^{\gamma_3 \gamma_0 \alpha/2}$ with $\alpha$ given by $\tanh(\alpha) = |p|/E$. Then $p_0 \mapsto \widetilde R p_0 R$ gives Equation \ref{eq:mass}.
+
+  On the other hand, if $p_0^2 = 0$, then
+
+  \begin{equation}
+    p_0 = \omega (\gamma_0 + \gamma_3), \label{eq:massless}
+  \end{equation}
+
+  for $\omega = E = |p|$. Spinors satisfying Equation \ref{eq:momentum} with $p_0 = \omega(\gamma_0 + \gamma_3)$ are distinct from those satisfying Equation \ref{eq:mass}. This is a minimal extension that preserves the usual gauge field of Dirac theory, while admitting a new class of null solutions.\footnote{Do these relate to the null solutions of the Dirac equation?}
+
+  Note that the conservation of the current density $J$ also depends on $p_0$.\footnote{GAP 8.93}
+
+  \begin{align}
+    \nabla \cdot J &= \langle \nabla \psi \gamma_0 \widetilde \psi \rangle + \langle \psi \gamma_0 \dot{\widetilde{\psi}} \dot \nabla \rangle\\
+    &= 2 \langle I s (e A + p e^{-I \beta}) \rangle) \\
+    &= 2 \langle I e^{-I \beta} s p \rangle \\
+    &= 2 \sin(\beta) s \cdot p
+  \end{align}
+
+  where $s = \psi \gamma_3 \widetilde \psi$ and $p e^{-I\beta} = \psi p_0 \psi^{-1}$. See the \emph{Scratch Work} section for more details. This means that 
+
+  \begin{equation}
+    \nabla \cdot J = 0 \iff \gamma_3 \cdot p_0 = 0,
+  \end{equation} 
+
+  which holds for $p_0 = m \gamma_0$ and does not hold for $p_0 = \omega(\gamma_0 + \gamma_3)$.
+
+  In the context of the normal Dirac equation, the conservation of $J$ is usually taken to mean that single fermions cannot be created or destroyed.\footnote{GAP p283} However, this interpretation may not make sense for null $p_0$. We'll try to make sense of these solutions next.
+
+  \section{Scratch work}
+
+  \subsection{$\nabla \cdot J$}
+
+    \begin{align}
+    \nabla \psi &= - (e A \psi + \psi p_0) I \sigma_3 \\
+    \nabla \psi \gamma_0 \widetilde \psi &= - (e A \psi + \psi p_0) I \sigma_3 \gamma_0 \widetilde \psi \\
+    &= - I (e A \psi + \psi p_0) \gamma_3 \widetilde \psi \\
+    &= - I (e A + p e^{-I \beta}) s \\
+    \langle \nabla \psi \gamma_0 \widetilde \psi \rangle &= - \langle I (e A + p e^{-I \beta}) s \rangle \\
+    &= \langle I s e A \rangle +  \langle I s p e^{-I \beta}) \rangle
+  \end{align}
+
+  \begin{align}
+    \dot{\widetilde{\psi}} \dot \nabla &= - (e \widetilde{A \psi I \sigma_3} + \widetilde{\psi p_0 I \sigma_3})\\
+    &= e I \sigma_3 \widetilde{\psi} A + I \sigma_3 p_0 \widetilde{\psi} \\
+    \psi \gamma_0 \dot{\widetilde{\psi}} \dot \nabla &= \psi \gamma_0 I \sigma_3 \widetilde{\psi} e A + \psi \gamma_0 I \sigma_3 p_0 \widetilde{\psi} \\
+    &= I (\psi \gamma_3 \widetilde{\psi} e A + \psi \gamma_3 p_0 \widetilde{\psi})\\
+    &= I (s e A + s \widetilde{\psi p_0 \psi^{-1}})\\
+    &= Is (e A + p e^{-I \beta})\\
+    \langle \psi \gamma_0 \dot{\widetilde{\psi}} \dot \nabla \rangle &= \langle I seA \rangle + \langle I s p e^{-I \beta} \rangle
+  \end{align}
+
+  where $p e^{-I \beta} = \psi p_0 \psi^{-1}$.
+
+  \subsubsection{$\widetilde{\psi^{-1}} = \widetilde{\psi}^{-1}$}
+
+  $\widetilde{\psi^{-1}} = \widetilde{\rho^{-1/2} e^{-I \beta/2} \widetilde R} = \rho^{-1/2} e^{-I \beta/2} R$
+
+  $\widetilde{\psi}^{-1} = (\rho^{1/2} e^{I \beta/2} \widetilde R)^{-1/2} = \rho^{-1/2} e^{-I \beta/2} R$
+
+
 
 \end{document}
