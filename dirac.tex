@@ -14,30 +14,26 @@
   The free Dirac equation in STA is
 
   \begin{equation}
-    \nabla \psi I \sigma_3 = \hat p \psi, \label{eq:dirac}
+    \nabla \psi I \sigma_3 = \psi p_0, \label{eq:dirac}
   \end{equation}
 
-  where $\psi \in G_{1,3}^+$ such that\footnote{See GAP 8.86}
+  where
 
   \begin{equation}
-    \hat p \psi = m \psi \gamma_0. \label{eq:mass}
+    p_0 = m \gamma_0. \label{eq:mass}
   \end{equation} 
 
   A less restrictive constraint is just that
 
   \begin{equation}
-    \hat p^2 = m^2
+    p_0^2 = m^2
   \end{equation}
 
-  be constant. With this lightened restriction, Equation \ref{eq:mass} can be replaced with
+  be constant. With this lightened restriction, Equation \ref{eq:dirac} admits a new class of null solutions, where $p_0^2 = 0$ but $\psi p_0 \not = 0$.
 
-  \begin{equation}
-    \hat p \psi = \psi p_0 \label{eq:momentum}
-  \end{equation}
+  \section{General Results}
 
-  where $p_0$ is a constant vector. This admits a new class of null solutions, where $\hat p^2 = 0$ but $\hat p \psi \not = 0$.\footnote{$\hat p$ is used in order to reserve $p$ for $p = R p_0 \widetilde R$.}
-
-  \section{Symmetries}
+\subsection{Constraints on $p_0$}
 
   The extension of the full Dirac equation, including the electromagnetic gauge field
 
@@ -45,16 +41,18 @@
     \nabla \psi I \sigma_3 - e A \psi = \psi p_0 \label{eq:full}
   \end{equation}
 
-  is only invariant under the usual replacements $\psi \mapsto \psi e^{\alpha I \sigma_3}$ and $A \mapsto A - \nabla \alpha$ if 
+  is only invariant under the usual replacements $\psi \mapsto \psi e^{\alpha I \sigma_3}$ and $A \mapsto A - \nabla \alpha$ if $p_0 \cdot I\sigma_3 = 0$:
 
-  \begin{equation}
-    p_0 \cdot I\sigma_3 = 0.
-  \end{equation} 
+  \begin{align}
+    \nabla (\psi e^{\alpha I \sigma_3}) I \sigma_3 - e (A - \nabla \alpha) \psi e^{\alpha I \sigma_3} &= (\nabla \psi I \sigma_3  - e A \psi) e^{\alpha I \sigma_3} \\
+     &= \psi p_0 e^{\alpha I \sigma_3} \\
+     &= \psi e^{\alpha I \sigma_3} p_0.
+  \end{align}
 
   This is an essential feature of Dirac theory, so we'll restrict $p_0$ preserve it. We require that
 
   \begin{equation}
-    p_0 = E \gamma_0 + |p| \gamma_3.
+    p_0 = E \gamma_0 \pm |\vec p| \gamma_3 = (E + \vec p) \gamma_0.
   \end{equation} 
 
   If $p_0^2 = m^2 \not= 0$, then 
@@ -63,66 +61,46 @@
     p_0 = R m \gamma_0 \widetilde R
   \end{equation} 
 
-  for $R = e^{\gamma_3 \gamma_0 \alpha/2}$ with $\alpha$ given by $\tanh(\alpha) = |p|/E$. Then $p_0 \mapsto \widetilde R p_0 R$ gives Equation \ref{eq:mass}.
+   for $R = e^{\gamma_3 \gamma_0 \alpha/2}$ with $\alpha$ given by $\tanh(\alpha) = |\vec p|/E$. Then $p_0 \mapsto \widetilde R p_0 R$ reduces to Equation \ref{eq:mass}.
 
   On the other hand, if $p_0^2 = 0$, then
 
   \begin{equation}
-    p_0 = \omega (\gamma_0 + \gamma_3), \label{eq:massless}
+    p_0 = \omega (1 + \hat p) \gamma_0, \label{eq:massless}
   \end{equation}
 
-  for $\omega = E = |p|$. Spinors satisfying Equation \ref{eq:momentum} with $p_0 = \omega(\gamma_0 + \gamma_3)$ are distinct from those satisfying Equation \ref{eq:mass}. \footnote{Do these relate to the null solutions of the Dirac equation?}
+  for $\omega = E = |\vec p|$. 
 
-  Note that the conservation of the current density $J$ also depends on $p_0$.\footnote{GAP 8.93}
+  Note that there are two classes of null solutions. Those for which the direction of the momentum density $\psi \hat p \gamma_0 \widetilde \psi = \pm \psi \gamma_3 \widetilde \psi$ is (1) parallel and (2) anti-parallel with the spin vector $s = \psi \gamma_3 \widetilde \psi$.
 
-  \begin{align}
-    \nabla \cdot J &= \langle \nabla \psi \gamma_0 \widetilde \psi \rangle + \langle \psi \gamma_0 \dot{\widetilde{\psi}} \dot \nabla \rangle\\
-    &= 2 \langle I s (e A + p e^{-I \beta}) \rangle) \\
-    &= 2 \langle I e^{-I \beta} s p \rangle \\
-    &= 2 \sin(\beta) s \cdot p
-  \end{align}
+  Solutions to Equation \ref{eq:dirac} satisfying Equation \ref{eq:massless} are distinct from those satisfying Equation \ref{eq:mass}. In particular, these solutions are distinct from the massless solutions to Equation \ref{eq:mass}, because they yield different observables. This will be demonstrated in the next section.
 
-  where $s = \psi \gamma_3 \widetilde \psi$ and $p e^{-I\beta} = \psi p_0 \psi^{-1}$. See the \emph{Scratch Work} section for more details. This means that 
+  \subsection{The Conserved Vector Current}
+
+  In general, if $v$ is a constant vector, then
 
   \begin{equation}
-    \nabla \cdot J = 0 \iff \gamma_3 \cdot p_0 = 0,
-  \end{equation} 
+    \nabla \cdot (\psi v \widetilde \psi) = \langle v \wedge p_0 (I \sigma_3 \psi \widetilde \psi) \rangle + \langle v \cdot I \sigma_3 (\widetilde \psi e A \psi) \rangle.
+  \end{equation}
 
-  which holds for $p_0 = m \gamma_0$ and does not hold for $p_0 = \omega(\gamma_0 + \gamma_3)$.
-
-  In the context of the normal Dirac equation, the conservation of $J$ is usually taken to mean that single fermions cannot be created or destroyed.\footnote{GAP p283} However, this interpretation may not make sense for null $p_0$. We'll try to make sense of these solutions next.
-
-  \section{Scratch work}
-
-  \subsection{$\nabla \cdot J$}
-
-    \begin{align}
-    \nabla \psi &= - (e A \psi + \psi p_0) I \sigma_3 \\
-    \nabla \psi \gamma_0 \widetilde \psi &= - (e A \psi + \psi p_0) I \sigma_3 \gamma_0 \widetilde \psi \\
-    &= - I (e A \psi + \psi p_0) \gamma_3 \widetilde \psi \\
-    &= - I (e A + p e^{-I \beta}) s \\
-    \langle \nabla \psi \gamma_0 \widetilde \psi \rangle &= - \langle I (e A + p e^{-I \beta}) s \rangle \\
-    &= \langle I s e A \rangle +  \langle I s p e^{-I \beta}) \rangle
-  \end{align}
+  Notice that the conservation of the usual probability current $J = \psi \gamma_0 \widetilde \psi = \rho v$ does \emph{not} vanish for $p_0 = \omega (1 + \hat p) \gamma_0$, since $\gamma_0 \wedge p_0 = - \vec p = \mp \omega \sigma_3$:
 
   \begin{align}
-    \dot{\widetilde{\psi}} \dot \nabla &= - (e \widetilde{A \psi I \sigma_3} + \widetilde{\psi p_0 I \sigma_3})\\
-    &= e I \sigma_3 \widetilde{\psi} A + I \sigma_3 p_0 \widetilde{\psi} \\
-    \psi \gamma_0 \dot{\widetilde{\psi}} \dot \nabla &= \psi \gamma_0 I \sigma_3 \widetilde{\psi} e A + \psi \gamma_0 I \sigma_3 p_0 \widetilde{\psi} \\
-    &= I (\psi \gamma_3 \widetilde{\psi} e A + \psi \gamma_3 p_0 \widetilde{\psi})\\
-    &= I (s e A + s \widetilde{\psi p_0 \psi^{-1}})\\
-    &= Is (e A + p e^{-I \beta})\\
-    \langle \psi \gamma_0 \dot{\widetilde{\psi}} \dot \nabla \rangle &= \langle I seA \rangle + \langle I s p e^{-I \beta} \rangle
+    \nabla \cdot J &= \langle \gamma_0 \wedge p_0 (I \sigma_3 \psi \widetilde \psi) \rangle \\
+                   &= \mp \omega \rho \langle I e^{I \beta} \rangle \\
+                   &= \pm \omega \rho \sin \beta.
   \end{align}
 
-  where $p e^{-I \beta} = \psi p_0 \psi^{-1}$.
+  A consequence of this result is that the usual interpretation of $J$ as a probability current does not extend to Equation \ref{eq:massless}. If solutions to this equation prove useful, then producing an interpretation that applies to both Equation \ref{eq:mass} and Equation \ref{eq:massless} may be worthwhile.
 
-  \subsubsection{$\widetilde{\psi^{-1}} = \widetilde{\psi}^{-1}$}
+  In general, we have
 
-  $\widetilde{\psi^{-1}} = \widetilde{\rho^{-1/2} e^{-I \beta/2} \widetilde R} = \rho^{-1/2} e^{-I \beta/2} R$
+  \begin{equation}
+    \nabla \cdot (\psi v \widetilde \psi) = 0 \iff v \wedge p_0 = 0. 
+  \end{equation}
 
-  $\widetilde{\psi}^{-1} = (\rho^{1/2} e^{I \beta/2} \widetilde R)^{-1/2} = \rho^{-1/2} e^{-I \beta/2} R$
+  That is, energy-momentum density $\rho p = \psi p_0 \widetilde \psi$ is the only vector-valued bilinear covariant conserved in general.
 
-
+  Is there an obvious route to a probabilistic interpretation that works for general $p_0$?
 
 \end{document}
