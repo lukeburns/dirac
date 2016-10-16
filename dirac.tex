@@ -75,11 +75,9 @@
     \nabla \psi I \sigma_3 = \omega \psi (1 \pm \sigma_3) \gamma_0.\label{eq:extension}
   \end{equation}
 
-  % Note that there are two classes of null solutions to this equation. Those for which the direction of the momentum density $\psi \hat p \gamma_0 \widetilde \psi = \pm \psi \gamma_3 \widetilde \psi$ is (1) parallel and (2) anti-parallel with the spin vector $s = \psi \gamma_3 \widetilde \psi$.
+  Solutions to Equation \ref{eq:dirac} satisfying Equation \ref{eq:massless} are distinct from those satisfying Equation \ref{eq:mass}. In particular, notice that $\psi$ is an ordinary Dirac spinor --- not a Weyl spinor like the massless solutions to the Dirac equation. These solutions are distinct from the massless solutions to the Dirac equation and yield different observables. Most notably, as we'll show next, the usual probability current is not conserved.
 
-  Solutions to Equation \ref{eq:dirac} satisfying Equation \ref{eq:massless} are distinct from those satisfying Equation \ref{eq:mass}. In particular, these solutions are distinct from the massless solutions to Equation \ref{eq:mass}, because they yield different observables. This will be demonstrated in the next section.
-
-  \subsection{The Conserved Vector Current}
+  \subsection{The Probability Current}
 
   In general, if $v_0$ is a constant vector, then
 
@@ -95,7 +93,7 @@
 
   That is, energy-momentum density $\rho p = \psi p_0 \widetilde \psi$ is the only vector-valued bilinear covariant conserved generally (up to a constant multiple).
 
-  In particular, notice that the conservation of the usual probability current $J = \psi \gamma_0 \widetilde \psi = \rho v$ does \emph{not} vanish for $p_0 = \omega (1 + \hat p) \gamma_0$, since $\gamma_0 \wedge p_0 = - \vec p = \mp \omega \sigma_3$:
+  In particular, notice that the conservation of the usual probability current $J = \psi \gamma_0 \widetilde \psi = \rho v$ does \emph{not} vanish for $p_0 = \omega (1 + \hat p) \gamma_0$, since $\gamma_0 \wedge p_0 = - \vec p = \mp \omega \sigma_3 \not= 0$ and
 
   \begin{align}
     \nabla \cdot J &= \langle \gamma_0 \wedge p_0 (I \sigma_3 \psi \widetilde \psi) \rangle \\
@@ -103,197 +101,26 @@
                    &= \pm \omega \rho \sin \beta.
   \end{align}
 
-  A consequence of this result is that the usual interpretation of $J$ as a probability current does not extend to Equation \ref{eq:massless}. If solutions to this equation prove useful, then producing an interpretation that applies to both Equation \ref{eq:mass} and Equation \ref{eq:massless} may be worthwhile.
+  A consequence is that the interpretation of $J$ as a probability current and the normalization procedure
 
-  Is there an obvious route to a probabilistic interpretation that works for general $p_0$?
+  \begin{equation}
+    \int d^3x \gamma_0 \cdot J = 1\label{eq:mnormal}
+  \end{equation}
 
-  % \subsection{Possible Interpretations}
+  do not carry over to Equation \ref{eq:massless}.\footnote{Well, the normalization procedure carries over perfectly well if $C = \omega$, as defined in Equation \ref{eq:normalization}.} However, we can extend this straightforwardly by rewriting things in terms of $p$. Equation \ref{eq:mnormal} is equivalent to
 
-  % Is there an obvious route to a probabilistic interpretation that works for general $p_0$?
+  \begin{equation}
+    \int d^3x \rho \gamma_0 \cdot p = m,
+  \end{equation}
 
-  % Current strategy: toy with the massless theory.
+  which simply ensures that integrating energy density over all of space, say, in the $\gamma_0$ frame, is just the rest energy of the particle.
 
-  % \section{The Massless Theory}
+  A reasonable generalization of this is
 
-  % Equation \ref{eq:dirac} with null $p_0$ is
+  \begin{equation}
+    \int d^3x \rho \gamma_0 \cdot p = C. \label{eq:normalization}
+  \end{equation}
 
-  % \begin{equation}
-  %   \nabla \psi I \sigma_3 = \omega \psi (1 \pm \sigma_3) \gamma_0
-  % \end{equation}
-
-  % or equivalently
-
-  % \begin{equation}
-  %   \nabla \psi = \mp I \omega \psi (1 \pm \sigma_3) \gamma_0,
-  % \end{equation}
-
-  % since $(1 \pm \sigma_3) (\pm \sigma_3) = (1 \pm \sigma_3)$. If there are constraints on $A$ (WIP next section), then it'll be worth considering this generalization to admit arbitrary $A$. Furthermore, for electromagnetic waves, duality rotations and rotations in the $E \wedge B$ plane are equivalent.
-
-  % Equation \ref{eq:full} with null $p_0$ can be written
-
-  % \begin{equation}
-  %   \nabla \psi I \sigma_3 - e A \psi = \omega \psi (1 \pm \sigma_3) \gamma_0
-  % \end{equation}
-
-  % and has a number of notable properties.
-
-  % Firstly, $p_0^2 = 0$ implies that $p^2 = (R p_0 \widetilde R)^2 = 0$, so this is the momentum of a massless particle. Secondly, $p_0 \cdot (I \sigma_3) = 0$ implies that $p = R p_0 \widetilde R$ is always perpendicular to the spin plane $S = \psi I \sigma_3 \widetilde \psi$. These two features highly suggest that Equation \ref{eq:dirac} with Equation \ref{eq:photon} describes photons.\footnote{How can I be sure that this doesn't describe a spin-1/2 particle? There is a factor of 1/2 tied up in the fact that $p_0/2\omega$ is idempotent and $m\gamma_0/m$ is idempotent. Does this have anything to do with spin?}
-
-  % \subsection{Constraints on $A$}
-
-  % $\nabla \cdot (\rho p) = 0$ implies that
-
-  % \begin{align}
-  %   \nabla (\rho p) &= \nabla \wedge (\rho p)\\
-  %   &= 2 e A p s
-  % \end{align}
-
-  % implies that...
-
-  % \subsection{Relation to Electromagnetic Fields}
-
-  % To take the possibility that these solutions describe photons, consider the field\footnote{This is similar to Vaz and Rodriguez's approach: https://arxiv.org/pdf/hep-th/9511181v1.pdf.}
-
-  % \begin{equation}
-  %   F = \nabla \psi I \sigma_3 n_0 \widetilde \psi = \psi p_0 n_0 \widetilde \psi \label{eq:faraday}
-  % \end{equation}
-
-  % where $n_0 \cdot p_0 = 0$, which satisfies
-
-  % \begin{align}
-  %   F^2 &= \psi p_0 n_0 \widetilde \psi \psi p_0 n_0 \widetilde \psi \\
-  %       &= - \rho e^{I\beta} \psi n_0 p_0^2 n_0 \widetilde \psi \\
-  %       &= 0.
-  % \end{align}
-
-  % % and
-
-  % % \begin{align}
-  % %   \nabla F &= \nabla (\nabla \psi I \sigma_3 n_0 \widetilde \psi) \\
-  % %    &= (\nabla^2 \psi) I \sigma_3 n_0 \widetilde \psi + \dot \nabla(\psi p_0 n_0 \dot{\widetilde{\psi}}) \\
-  % %    &= \gamma^\mu (\psi p_0 n_0 p_\mu \Omega_\mu \widetilde \psi)\\
-  % %    &= \psi p_0^2 n_0 \Omega \widetilde \psi \\
-  % %    &= 0.
-  % % \end{align}
-
-  % % Hold up is this right? Not sure this sum is good.
-
-  % How does $F$ behave under gauge transformations?
-
-  % Furthermore, $p_0 \cdot \gamma_3 = -\omega$ implies
-
-  % \begin{equation}
-  %   s \cdot p = - \omega \rho,
-  % \end{equation}
-
-  % where $s = \psi \gamma_3 \widetilde \psi$, so that
-
-  % \begin{equation}
-  %   \nabla \cdot J = - 2 \omega \rho \sin (\beta) \not = 0.
-  % \end{equation}
-
-  % What does $J$ mean in this context?
-
-  % \subsection{Plane Waves}
-
-  % Definition (13) was selected in order to reduce to the general form of left or right circularly polarized electromagnetic waves in the plane wave case, where $\psi = \psi_0 e^{\pm I p \cdot x/2}$, $\psi_0 = \rho^{1/2} e^{I \beta/2} R$ constant, and the added constraint $p = R p_0 \widetilde R$:\footnote{GAP 7.142. Is this constraint necessary? Would it make sense to use $e^{\pm I p_0 \cdot x}$?}
-
-  % \begin{align}
-  %   F &= \psi p_0 n_0 \widetilde \psi \\
-  %     &= pn \rho e^{I \beta}e^{\pm I p \cdot x}.
-  % \end{align}
-
-  % \subsection{Interactions}
-
-  % What if $A$ is a potential for an electromagnetic wave?
-
-  % \section{Scratch work}
-
-  % \subsection{$\nabla \cdot J$}
-
-  %   \begin{align}
-  %   \nabla \psi &= - (e A \psi + \psi p_0) I \sigma_3 \\
-  %   \nabla \psi \gamma_0 \widetilde \psi &= - (e A \psi + \psi p_0) I \sigma_3 \gamma_0 \widetilde \psi \\
-  %   &= - I (e A \psi + \psi p_0) \gamma_3 \widetilde \psi \\
-  %   &= - I (e A + p e^{-I \beta}) s \\
-  %   \langle \nabla \psi \gamma_0 \widetilde \psi \rangle &= - \langle I (e A + p e^{-I \beta}) s \rangle \\
-  %   &= \langle I s e A \rangle +  \langle I s p e^{-I \beta}) \rangle
-  % \end{align}
-
-  % \begin{align}
-  %   \dot{\widetilde{\psi}} \dot \nabla &= - (e \widetilde{A \psi I \sigma_3} + \widetilde{\psi p_0 I \sigma_3})\\
-  %   &= e I \sigma_3 \widetilde{\psi} A + I \sigma_3 p_0 \widetilde{\psi} \\
-  %   \psi \gamma_0 \dot{\widetilde{\psi}} \dot \nabla &= \psi \gamma_0 I \sigma_3 \widetilde{\psi} e A + \psi \gamma_0 I \sigma_3 p_0 \widetilde{\psi} \\
-  %   &= I (\psi \gamma_3 \widetilde{\psi} e A + \psi \gamma_3 p_0 \widetilde{\psi})\\
-  %   &= I (s e A + s \widetilde{\psi p_0 \psi^{-1}})\\
-  %   &= Is (e A + p e^{-I \beta})\\
-  %   \langle \psi \gamma_0 \dot{\widetilde{\psi}} \dot \nabla \rangle &= \langle I seA \rangle + \langle I s p e^{-I \beta} \rangle
-  % \end{align}
-
-  % where $p e^{-I \beta} = \psi p_0 \psi^{-1}$.
-
-  % \subsubsection{$\widetilde{\psi^{-1}} = \widetilde{\psi}^{-1}$}
-
-  % $\widetilde{\psi^{-1}} = \widetilde{\rho^{-1/2} e^{-I \beta/2} \widetilde R} = \rho^{-1/2} e^{-I \beta/2} R$
-
-  % $\widetilde{\psi}^{-1} = (\rho^{1/2} e^{I \beta/2} \widetilde R)^{-1/2} = \rho^{-1/2} e^{-I \beta/2} R$
-
-  % \subsection{Observables for $p_0 = \omega (1 \pm \sigma_3)\gamma_0$}
-
-  % The momentum relates directly to the current density $J = \psi \gamma_0 \widetilde \psi $, the spin vector $s = \psi \gamma_3 \widetilde \psi$, and the density / duality term $\psi \widetilde \psi = \rho e^{I \beta}$ in the following way
-
-  % \begin{align}
-  %   p &= R p_0 \widetilde R \\
-  %     & = \omega R (\gamma_0 \pm \gamma_3) \widetilde R \\
-  %     &= \omega (J + s)/\rho.
-  % \end{align}
-
-  % And the spin plane is similarly related to these three observables.
-
-  % \begin{align}
-  %   S &= \psi I \sigma_3 \widetilde \psi \\
-  %     &= I \psi \gamma_3 \gamma_0 \widetilde \psi \\
-  %     &= I s J e^{I \beta} / \rho.
-  % \end{align}
-
-  % \subsection{Alternate definition of $F$}
-
-  % How does
-
-  % \begin{equation}
-  %   F = \nabla (\psi I \sigma_3 n \widetilde \psi)
-  % \end{equation}
-
-  % compare with Equation \ref{eq:faraday}? Is it still a bivector?
-
-  % \subsection{Duality rotations}
-
-  % Equation \ref{eq:dirac} is equivalent to
-
-  % \begin{equation}
-  %   \nabla \psi I = - \omega \psi (1 \pm \sigma_3) \gamma_0,
-  % \end{equation}
-
-  % due to the property $(1 \pm \sigma_3) \sigma_3 = 1 \pm \sigma_3$. This means that duality transformations and rotations in the $I \sigma_3$ plane are identical.
-
-  % What are the consequences of this? Does this place constraints on $\psi$? Does this affect the gauging process?
-
-  % No need to specify $\sigma_3$:
-
-  % \begin{equation}
-  %   \nabla \psi I = - \psi p_0,
-  % \end{equation}
-
-  % for $p_0^2 = 0$.
-
-  % \subsection{Electromagnetic Fields}
-
-  % Consider
-
-  %   \begin{equation}
-  %     \widetilde R \nabla R = (e A_0 + p_0 e^{- I \beta}) s_0
-  %   \end{equation}
-
-  % where $A_0 = \widetilde R A R$ and $s_0 = - I \sigma_3$.
+  for a constant $C$. Any choice of $C$ determines a probability current $j = \psi p_0 \widetilde \psi / C$ with a normalized probability density $j_0 = \gamma_0 \cdot j$. For null $p_0$, however, there is no privileged frame that gives a natural choice of $C$. Selecting $C = \gamma_0 \cdot p_0$ for may be a convenient choice, because it coincides with $\omega$ in the massless theory, reducing the number of arbitrary parameters to be specified, and aligns with the usual choice $m$ in the massive theory.
 
 \end{document}
