@@ -2,6 +2,8 @@
 \usepackage[margin=1.25in]{geometry}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{multicol}
+\usepackage{hyperref}
 
 \title{An Extension of the Dirac Equation}
 \author{Luke Burns}
@@ -11,7 +13,9 @@
 
   \section{Introduction}
 
-  The free Dirac equation in STA is
+  In this paper, I will show that a minimal extension of the Dirac equation admits a description of massless, electrically charged, spin-1/2 particles that violate charge conjugation and time reversal (CP) symmetries.
+
+  The free Dirac equation as expressed in the Space Time Algebra (STA) is\cite{gap}
 
   \begin{equation}
     \nabla \psi I \sigma_3 = \psi p_0, \label{eq:dirac}
@@ -23,104 +27,274 @@
     p_0 = m \gamma_0. \label{eq:mass}
   \end{equation} 
 
-  A less restrictive constraint is just that
+  This equation in part describes the dynamics of a spinor $\psi = (\rho e^{I \beta})^{1/2}R$ that rotates, boosts, and dilates the momentum of a particle in its rest frame $p_0 = m \gamma_0$ onto a probability current $mJ = \psi p_0 \widetilde \psi = m \rho e_0$ where $e_0 = R \gamma_0 \widetilde R$. However, this description fails for massless particles, since they have no rest frame.
+
+  A minimal extension to this equation that accomodates a similar description for massless particles is to simply require that $p_0$ be constant, so that $\psi$ describes the dynamics of a spinor that rotates, boosts, and dilates the momentum $p_0$ of a particle in some arbitrary ``initial'' frame onto a probability current $\psi p_0 \widetilde \psi$ (it will be shown that this works in general in Section \ref{probability}).
+
+  This extension including the electromagnetic gauge field can be written
 
   \begin{equation}
-    p_0^2 = m^2
+    \nabla \psi I \sigma_3 - e A \psi = \psi p_0. \label{eq:full}
   \end{equation}
 
-  be constant. With this lightened restriction, Equation \ref{eq:dirac} admits a new class of null solutions, where $p_0^2 = 0$ but $\psi p_0 \not = 0$.
+  In Section \ref{constraints}, we'll work out the physical constraints on $p_0$ and show that Equation \ref{eq:full} admits the usual solutions to the Dirac equation and a new class of null solutions, where $p_0^2 = 0$ but $\psi p_0 \not = 0$. Then we'll work out the symmetries of Equation \ref{eq:full} in Section \ref{symmetries}. Finally, we will determine the observables of solutions in Section \ref{probability} and present plane wave solutions in Section \ref{waves}. 
 
-  \section{General Results}
+  The Matrix formulation is tucked away in Appendix \ref{matrix}. I encourage the reader to check out STA, which provides the dynamical spinor description used above to motivate the extension. See \url{https://github.com/ga/Resources} for a collection of resources.
 
-\subsection{Constraints on $p_0$}
+  \section{Constraints}\label{constraints}
 
-  The extension of the full Dirac equation, including the electromagnetic gauge field
-
-  \begin{equation}
-    \nabla \psi I \sigma_3 - e A \psi = \psi p_0 \label{eq:full}
-  \end{equation}
-
-  is only invariant under the usual replacements $\psi \mapsto \psi e^{\alpha I \sigma_3}$ and $A \mapsto A - \nabla \alpha$ if $p_0 \cdot I\sigma_3 = 0$:
-
-  \begin{align}
-    \nabla (\psi e^{\alpha I \sigma_3}) I \sigma_3 - e (A - \nabla \alpha) \psi e^{\alpha I \sigma_3} &= (\nabla \psi I \sigma_3  - e A \psi) e^{\alpha I \sigma_3} \\
-     &= \psi p_0 e^{\alpha I \sigma_3} \\
-     &= \psi e^{\alpha I \sigma_3} p_0.
-  \end{align}
-
-  This is an essential feature of Dirac theory, so we'll restrict $p_0$ preserve it. We require that
+  Equation \ref{eq:full} is only invariant under the usual replacements $\psi \mapsto \psi e^{\alpha I \sigma_3}$ and $A \mapsto A - \nabla \alpha$ if 
 
   \begin{equation}
-    p_0 = E \gamma_0 \pm |\vec p| \gamma_3 = (E + \vec p) \gamma_0.
+    p_0 I\sigma_3 = I \sigma_3 p_0. \label{momentum-perp-spin}
   \end{equation} 
 
-  If $p_0^2 = m^2 \not= 0$, then 
+  That is, $p_0$ is perpendicular to the plane $I \sigma_3$. This is an essential feature of Dirac theory, so we'll restrict $p_0$ to preserve it. We require that
 
   \begin{equation}
-    p_0 = R m \gamma_0 \widetilde R
+    p_0 = E \gamma_0 \pm |\vec p| \gamma_3.
   \end{equation} 
 
-   for $R = e^{\gamma_3 \gamma_0 \alpha/2}$ with $\alpha$ given by $\tanh(\alpha) = |\vec p|/E$. Then $p_0 \mapsto \widetilde R p_0 R$ reduces to Equation \ref{eq:mass}.
-
-  On the other hand, if $p_0^2 = 0$, then
+  Additionally, if solutions are to satisfy the Klein-Gordon equation, we must have 
 
   \begin{equation}
-    p_0 = \omega (1 + \hat p) \gamma_0, \label{eq:massless}
+    p_0^2 \geq 0.
   \end{equation}
 
-  for $\omega = E = |\vec p|$, which gives an equation of the form
+  If $p_0^2 > 0$, then 
 
   \begin{equation}
-    \nabla \psi I \sigma_3 = \omega \psi (1 \pm \sigma_3) \gamma_0.\label{eq:extension}
-  \end{equation}
+    p_0 = R m \gamma_0 \widetilde R\label{eq:R}
+  \end{equation} 
 
-  Solutions to Equation \ref{eq:dirac} satisfying Equation \ref{eq:massless} are distinct from those satisfying Equation \ref{eq:mass}. In particular, notice that $\psi$ is an ordinary Dirac spinor --- not a Weyl spinor like the massless solutions to the Dirac equation. These solutions are distinct from the massless solutions to the Dirac equation and yield different observables. Most notably, as we'll show next, the usual probability current is not conserved.
+   for $R = e^{\gamma_3 \gamma_0 \alpha/2}$ with $\alpha$ given by $\tanh(\alpha) = \pm |\vec p|/E$. 
 
-  \subsection{The Probability Current}
+   If $\psi$ is a solution to Equation \ref{eq:full} and $p_0^2 > 0$, then $\psi R$ is a solution to the Dirac equation. On the other hand, if $\psi$ is instead a solution to the Dirac equation, then $\psi \widetilde R$ is a solution to Equation \ref{eq:full}.\footnote{We will see in Section \ref{symmetries} that $\psi$ is in general a multivector, so if $\psi$ is a solution to Equation \ref{eq:full}, then its even and odd parts satisfy Equation \ref{eq:full} independently. The argument above can be made for each of these solutions independently using Equations \ref{eq:even} and \ref{eq:odd}.} That is, solutions to Equation \ref{eq:full} are in one-to-one correspondence to solutions of the Dirac equation.
 
-  In general, if $v_0$ is a constant vector, then
-
-  \begin{equation}
-    \nabla \cdot (\psi v_0 \widetilde \psi) = \langle v_0 \wedge p_0 (I \sigma_3 \psi \widetilde \psi) \rangle + \langle v_0 \cdot I \sigma_3 (\widetilde \psi e A \psi) \rangle,
-  \end{equation}
-
-  and
+   On the other hand, if $p_0^2 = 0$, then
 
   \begin{equation}
-    \nabla \cdot (\psi v_0 \widetilde \psi) = 0 \iff v_0 \wedge p_0 = 0. 
+    p_0 = \omega_0 (1 \pm \sigma_3) \gamma_0, \label{eq:massless}
   \end{equation}
 
-  That is, energy-momentum density $\rho p = \psi p_0 \widetilde \psi$ is the only vector-valued bilinear covariant conserved generally (up to a constant multiple).
+  for $\omega_0 = E = |\vec p|$. Note that $\psi$ can be decomposed into 
 
-  In particular, notice that the conservation of the usual probability current $J = \psi \gamma_0 \widetilde \psi = \rho v$ does \emph{not} vanish for $p_0 = \omega (1 + \hat p) \gamma_0$, since $\gamma_0 \wedge p_0 = - \vec p = \mp \omega \sigma_3 \not= 0$ and
+  \begin{equation}
+    \psi = \psi \frac{1 + \sigma_3}{2} + \psi \frac{1 - \sigma_3}{2}.
+  \end{equation}
+
+  If $\psi$ is a solution to Equation \ref{eq:full} and $p_0^2 = 0$, then the projection $\psi \frac{1 \mp \sigma_3}{2}$ gives a solution to the (massless) Dirac equation, since $\psi \frac{1 \mp \sigma_3}{2} p_0 = 0$. However, this is not invertible. The only way to recover $\psi$ would be from $\psi \frac{1 \pm \sigma_3}{2}$. The problem is that this is another solution to Equation \ref{eq:full} and \emph{not} a solution to the Dirac equation, since $\psi \frac{1 \pm \sigma_3}{2} p_0 = 2 \psi p_0$.\footnote{Makes me want to throw in a factor of $1/2$ on the RHS of Equation \ref{eq:full}. Another reason for doing this arises in Section \ref{waves} is that $\omega_0$ is actually twice the frequency of rotation generated by $\psi$ in the initial frame.} So there is no way to recover general solutions to Equation \ref{eq:full} from solutions to the massless Dirac equation. 
+
+  This means that Equation \ref{eq:full} contains null solutions that are distinct from solutions to the massless Dirac equation and, furthermore, that these are the \emph{only} new solutions admitted by the extension. In this sense, the extension is minimal.
+
+  \section{Symmetries} \label{symmetries}
+
+  Unlike the Dirac equation, Equation \ref{eq:full} is not invariant under
+
+  \begin{equation}
+    \psi \mapsto \psi \gamma_0.\label{eq:g0conjugation}
+  \end{equation}
+
+  If $\psi$ is a solution to
+
+  \begin{equation}
+    \nabla \psi I \sigma_3 - e A \psi = \psi p_0,\label{eq:plus}
+  \end{equation}
+
+  then $\psi' = \psi \gamma_0$ is a solution to
+
+  \begin{equation}
+    \nabla \psi' I \sigma_3 - e A \psi' = \psi' \overline p_0 \gamma_0, \label{eq:minus}
+  \end{equation}
+
+  where $\overline M \equiv \gamma_0M\gamma_0$ is minus the reflection of any multivector $M$ across the $\gamma_0$ axis (i.e. $\overline{E \gamma_0 + |\vec p|\gamma_3} = E \gamma_0 - |\vec p|\gamma_3$).
+
+  That is, Equation \ref{eq:full} distinguishes between even and odd fields, which is a key reason we are not able to find a one-to-one correspondence between massless solutions to Equation \ref{eq:full} and the Dirac equation. In general, $\psi$ is a full multivector and can be decomposed into
+
+  \begin{equation}
+    \psi = \langle \psi \rangle_+ + \langle \psi \rangle_-,
+  \end{equation}
+
+  where $\langle \psi \rangle_+$ and $\langle \psi \rangle_-$ are even and odd multivectors respectively that are independent solutions to
+
+  \begin{equation}
+    \nabla \langle \psi \rangle_\pm I \sigma_3 - e A \langle \psi \rangle_\pm = \langle \psi \rangle_\pm p_0.\label{eq:decoupled}
+  \end{equation}
+
+  We can therefore make the choice of $p_0 = \omega_0 (1 + \sigma_3) \gamma_0$ for the massless case without loss of generality, because if $\psi_+ = \langle \psi \rangle_+$ is a solution to
+
+  \begin{equation}
+    \nabla \psi_+ I \sigma_3 - e A \psi_+ = \omega_0 \psi_+ (1 + \sigma_3) \gamma_0,\label{eq:even}
+  \end{equation}
+
+  then the even multivector 
+
+  \begin{equation}
+    \psi_- = \langle \psi \rangle_- \gamma_0\label{eq:0decomposition}
+  \end{equation} 
+
+  is a solution to
+
+  \begin{equation}
+    \nabla \psi_- I \sigma_3 - e A \psi_- = \omega_0 \psi_- (1 - \sigma_3) \gamma_0.\label{eq:odd}
+  \end{equation}
+
+  At first glance, it appears that $\psi_+$ and $\psi_-$ have opposite helicity. However, this is not exactly the case. For instance, if $\psi_+$ is a solution to Equation \ref{eq:even}, then $\psi_+ \sigma_1$ is a solution to the same equation with opposite charge and helicity. The precise difference between $\langle \psi \rangle_+$ and $\langle \psi \rangle_-$ is the combination of charge and helicity, which you can see by inspecting Equations \ref{eq:even} and \ref{eq:odd}. 
+
+  We can make better sense of this by looking at charge, parity, and time reversal conjugations. It turns out that there is no grade preserving map between solutions to Equation \ref{eq:even} and Equation \ref{eq:odd} in the presence of a gauge field. As consequence, charge conjugation and time reversal symmetries are violated. These conjugations are given by
 
   \begin{align}
-    \nabla \cdot J &= \langle \gamma_0 \wedge p_0 (I \sigma_3 \psi \widetilde \psi) \rangle \\
-                   &= \mp \omega \rho \langle I e^{I \beta} \rangle \\
-                   &= \pm \omega \rho \sin \beta.
+    \hat C \psi : \psi \mapsto \psi \gamma_1 &\iff eA \mapsto - eA \label{eq:charge}\\
+    \hat P \psi : \psi(x) \mapsto \overline \psi(\overline x) &\iff \nabla \mapsto \overline \nabla, eA \mapsto e\overline A, \text{ and } p_0 \mapsto \overline p_0 \label{eq:parity}\\
+    \hat T \psi : \psi(x) \mapsto I \overline \psi(-\overline x) \gamma_1 &\iff \nabla \mapsto -\overline\nabla, I\sigma_3 \mapsto - I\sigma_3, eA \mapsto -e\overline A, \text{ and } p_0 \mapsto - \overline p_0.\label{eq:time}
   \end{align}
 
-  A consequence is that the interpretation of $J$ as a probability current and the normalization procedure
+  Parity is grade preserving, and of course, so is the combined CPT conjugation, given by
+
+  \begin{equation}
+    \psi(x) \mapsto I \psi(-x) \iff I \sigma_3 \mapsto - I \sigma_3 \text{ and } A \mapsto - A. \label{eq:cpt}
+  \end{equation}
+
+  However, charge and time reversal conjugations are not. This means that charge and time reversal symmetries are violated by Equations \ref{eq:even} and \ref{eq:odd}.
+
+  The reason that charge and time reversal conjugations are grade preserving in Dirac theory is that Equation \ref{eq:g0conjugation} leaves the Dirac equation invariant. The situation here is different. There is no odd-valued conjugation that leaves Equations \ref{eq:even} and \ref{eq:odd} invariant in general that would enable us to construct grade preserving charge and time reversal conjugations out of Equations \ref{eq:charge} and \ref{eq:time}, which one can confirm with a glance at the possible vector-valued conjugations:
+
+  \begin{align}
+    \psi \mapsto \psi \gamma_0 &\iff p_0 \mapsto \overline p_0 \\
+    \psi \mapsto \psi \gamma_{1,2} &\iff e A \mapsto - eA \\
+    \psi \mapsto \psi \gamma_3 &\iff p_0 \mapsto - \overline p_0\\
+    \psi \mapsto \gamma_0 \psi &\iff \nabla \mapsto \overline \nabla \text{ and } eA \mapsto - e \overline A.
+  \end{align}
+
+  When the gauge field vanishes, Equation \ref{eq:charge} is an odd-valued conjugation that leaves Equation \ref{eq:full} unchanged, and so
+
+  \begin{equation}
+    \psi \mapsto \psi \sigma_1,
+  \end{equation}
+
+  provides a grade preserving map between solutions to Equations \ref{eq:even} and \ref{eq:odd}.
+
+  \section{The Probability Current}\label{probability}
+
+  Essential to Dirac theory is its probabilistic intepretation, which depends on a conserved probability current $J$ satisfying the continuity equation
+
+  \begin{equation}
+    \nabla \cdot J = 0.
+  \end{equation}
+
+  The usual probability current $\psi \gamma_0 \widetilde \psi$ of Dirac theory is not conserved here. To see this, consider the following, for a constant vector $v_0$.
+
+  \begin{equation}
+    \nabla \cdot (\psi v_0 \widetilde \psi) = \langle v_0 \wedge p_0 (I \sigma_3 \psi \widetilde \psi) \rangle + \langle v_0 \cdot I \sigma_3 (\widetilde \psi e A \psi) \rangle,\label{eq:current-expansion}
+  \end{equation}
+
+  which gives a condition for conservation
+
+  \begin{equation}
+    \nabla \cdot (\psi v_0 \widetilde \psi) = 0 \iff v_0 \wedge p_0 = 0.
+  \end{equation}
+
+  The second term in Equation \ref{eq:current-expansion} vanishes, because $v_0 \wedge p_0 = 0$ implies $v_0 \cdot I \sigma_3 = 0$, due to Equation \ref{momentum-perp-spin}.
+
+  This means that $\psi p_0 \widetilde \psi$ is the only vector-valued bilinear covariant conserved in general (up to a constant multiple). Furthermore, the fact that $\nabla \cdot (\psi p_0 \widetilde \psi) = 0$ implies the existence of streamlines with tangents given by $p = R p_0 \widetilde R$, which are timelike if $p_0^2 > 0$ and lightlike if $p_0^2 = 0$. The usual probability current $\psi \gamma_0 \widetilde \psi$ is not conserved because $\gamma_0 \wedge p_0 \not= 0$.
+
+  The normalization procedure
 
   \begin{equation}
     \int d^3x \gamma_0 \cdot J = 1\label{eq:mnormal}
   \end{equation}
 
-  do not carry over to Equation \ref{eq:massless}.\footnote{Well, the normalization procedure carries over perfectly well if $C = \omega$, as defined in Equation \ref{eq:normalization}.} However, we can extend this straightforwardly by rewriting things in terms of $p$. Equation \ref{eq:mnormal} is equivalent to
+  can be extended straightforwardly. In Dirac theory, Equation \ref{eq:mnormal} is equivalent to
 
   \begin{equation}
-    \int d^3x \rho \gamma_0 \cdot p = m,
+    \int d^3x \gamma_0 \cdot (\psi p_0 \widetilde \psi) = m,
   \end{equation}
 
-  which simply ensures that integrating energy density over all of space, say, in the $\gamma_0$ frame, is just the rest energy of the particle.
+  which simply ensures that integrating energy density (in the $\gamma_0$ frame) over all of space is just the rest energy of the particle.\footnote{Note, there is a certain arbitrariness to this, since it is frame dependent.}
 
-  A reasonable generalization of this is
+  Since massless particles do not have rest energy, a reasonable generalization of this is
 
   \begin{equation}
-    \int d^3x \rho \gamma_0 \cdot p = C. \label{eq:normalization}
+    \int d^3x \gamma_0 \cdot (\psi p_0 \widetilde \psi) = c. \label{eq:normalization}
   \end{equation}
 
-  for a constant $C$. Any choice of $C$ determines a probability current $j = \psi p_0 \widetilde \psi / C$ with a normalized probability density $j_0 = \gamma_0 \cdot j$. For null $p_0$, however, there is no privileged frame that gives a natural choice of $C$. Selecting $C = \gamma_0 \cdot p_0$ for may be a convenient choice, because it coincides with $\omega$ in the massless theory, reducing the number of arbitrary parameters to be specified, and aligns with the usual choice $m$ in the massive theory.
+  for a constant $c$. Any choice of $c$ determines a probability current $J = \psi p_0 \widetilde \psi / c$ with a normalized probability density $J_0 = \gamma_0 \cdot J$. Selecting $c = \gamma_0 \cdot p_0$ may be a convenient choice, because it coincides with $\omega_0$ in the massless theory and aligns with the usual choice $m$ in the massive theory.\footnote{This is frame dependent. It would be nice to make this frame independent.}
+
+  \section{Plane Waves} \label{waves}
+
+  Plane wave solutions are given by
+
+  \begin{equation}
+    \nabla \psi I \sigma_3 = p \psi,\label{eq:plane}
+  \end{equation}
+
+  where $p$ is a constant, which tells us that
+
+  \begin{equation}
+    p \psi = \psi p_0.
+  \end{equation}
+
+  Using the decomposition $\psi = (\rho e^{I \beta})^{1/2} R$,
+
+  \begin{equation}
+    p e^{I \beta} = R p_0 \widetilde R
+  \end{equation}
+
+  implies that $e^{I \beta} = \pm 1$, and hence
+
+  \begin{equation}
+    p = \pm R p_0 \widetilde R.
+  \end{equation}
+
+  $p$ is constant implies that $\rho$ is constant and, given the decomposition $R = R_\parallel R_\perp$, where $R_\perp$ satisfies $p_0 = R_\perp p_0 \widetilde R_\perp$, $R_\parallel$ is constant and $R_\perp = e^{I \sigma_3 \theta(x)}$.
+
+  This implies that 
+
+  \begin{equation}
+    \theta = \pm p \cdot x + c(x),
+  \end{equation}
+
+  where $c(x)$ satisfies $\nabla c(x) = 0$ (is monogenic).
+
+  Taking $c(x) = 0$, for every $\rho$ and $R_\parallel$, which determine a constant Lorentz transformation and dilation of $p_0$, we have two solutions
+
+  \begin{equation}
+    \psi_1 = \rho^{1/2} R_\parallel e^{- I \sigma_3 p \cdot x} \text { and } \psi_2 = \rho^{1/2} I R_\parallel e^{I \sigma_3 p \cdot x},
+  \end{equation} 
+
+  which are CPT conjugates of one another. 
+
+  $\psi_1$ and $\psi_2$ describe particles with the opposite spin, propagating in the same direction. In total, there are four solutions: two for Equation \ref{eq:even} which describe two particles of opposite helicity propagating in one direction, and two for Equation \ref{eq:odd} which describe two particles of opposite helicity propagating in the other direction. 
+
+  The other two are given by $\psi_1' = \psi_1 \sigma_1$ and $\psi_2' = \psi_2 \sigma_1$, since $A=0$ and Equation \ref{eq:charge} leaves Equation \ref{eq:plane} invariant.
+
+  \appendix
+
+  \section{Matrix Formulation} \label{matrix}
+
+  Following (8.70) in Reference \cite{gap}, Equations \ref{eq:even} and \ref{eq:odd} take the following form in matrix representation.
+
+  \begin{equation}
+    \hat \gamma^\mu (i \partial_\mu - e A_\mu) | \psi_+ \rangle = \omega_0 (I_4 + \hat \gamma_5) | \psi_+ \rangle
+  \end{equation}
+
+  and
+
+  \begin{equation}
+    \hat \gamma^\mu (i \partial_\mu - e A_\mu) | \psi_- \rangle = \omega_0 (I_4 - \hat \gamma_5) | \psi_- \rangle,
+  \end{equation}
+
+  where
+
+  \begin{align}
+    \gamma^0 = \begin{pmatrix} I_2 & 0 \\ 0 & -I_2 \end{pmatrix},\quad \gamma^k = \begin{pmatrix} 0 & \sigma^k \\ -\sigma^k & 0 \end{pmatrix},\quad \gamma_5 = \begin{pmatrix} 0 & I_2 \\ I_2 & 0 \end{pmatrix}.
+  \end{align}
+
+
+  \begin{thebibliography}{9}
+    \bibitem{gap} 
+      Doran and Lasenby.
+      \textit{Geometric Algebra for Physicists}.
+  \end{thebibliography}
 
 \end{document}
