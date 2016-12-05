@@ -11,7 +11,7 @@
 \begin{document}
   \maketitle
 
-  \abstract{A minimal extension of the Dirac equation is shown to describe a pair of massless, electrically charged fermions that violate charge conjugation and time reversal symmetries in the presence of an electromagnetic potential. Solutions exhibit rotation in the particle's spin plane, analogous to the zitterbewegung of massive Dirac theory and identical to electric and magnetic fields of circularly polarized electromagnetic waves.}
+  \abstract{A minimal extension of the Dirac equation is shown to describe a pair of massless, electrically charged fermions. Solutions exhibit rotation in the particle's spin plane, analogous to the zitterbewegung of massive Dirac theory and identical to electric and magnetic fields of circularly polarized electromagnetic waves.}
 
   \section{Introduction}
 
@@ -89,7 +89,7 @@
     \psi = \psi \frac{1 + \sigma_3}{2} + \psi \frac{1 - \sigma_3}{2} = \psi_+ + \psi_-,
   \end{equation}
 
-  implies that if $\psi$ is a solution to Equation \ref{eq:full}, then the Pauli spinor $\psi_\pm$ is a solution to the massless Dirac equation. We can see this by multiplying Equation \ref{eq:full} by $(1 \pm \sigma_3)/2$ on the right, which gives
+  implies that if $\psi$ is a solution to Equation \ref{eq:full}, then the Weyl spinor $\psi_\pm$ is a solution to the massless Dirac equation. We can see this by multiplying Equation \ref{eq:full} by $(1 \pm \sigma_3)/2$ on the right, which gives
 
   \begin{equation}
     \nabla \psi_\pm I \sigma_3 - e A \psi_\pm = \frac{1}{2} \omega_0 \psi (1 \pm \sigma_3)(1 \mp \sigma_3) \gamma_0 = 0,
@@ -107,7 +107,7 @@
 
   \section{Symmetries} \label{symmetries}
 
-  In this section, we'll show that solutions to Equation \ref{eq:full} are, in general, multivectors but that a multivector solution is just a pair of independent spinor valued solutions to Equation \ref{eq:full}. Then we'll show that the particles described by Equation \ref{eq:full} violate charge conjugation and time reversal symmetries.
+  In this section, we'll show that solutions to Equation \ref{eq:full} are, in general, multivectors but that a multivector solution is just a pair of independent spinor valued solutions to Equation \ref{eq:full}. Then we'll construct charge, parity, and time reversal conjugations.
 
   Unlike the Dirac equation, Equation \ref{eq:full} is not invariant under
 
@@ -143,7 +143,7 @@
 
   because $\nabla$, $A$, and $p_0$ are all odd valued. If, say, the gauge field $A$ were even valued, then $\langle \psi \rangle_+$ and $\langle \psi \rangle_-$ would be coupled.\footnote{This raises the interesting possibility of having a spinor valued (i.e. fermionic) gauge field.}
 
-  Equations \ref{eq:decoupled} can be re-expressed in terms of two equations involving only spinors. Doing this will allow for an straightforward comparison to Dirac theory as developed by Hestenes.\cite{hestenes} If $\psi_+ = \langle \psi \rangle_+$ is a solution to
+  Equations \ref{eq:decoupled} can be re-expressed in terms of two equations involving only spinors. Doing this will allow for an straightforward comparison to Dirac theory. If $\psi_+ = \langle \psi \rangle_+$ is a solution to
 
   \begin{equation}
     \nabla \psi_+ I \sigma_3 - e A \psi_+ = \omega_0 \psi_+ (1 + \sigma_3) \gamma_0,\label{eq:even}
@@ -163,48 +163,52 @@
 
   but these are precisely Equation \ref{eq:full} for each sign of $p_0$.
 
-  At first glance, it appears that Equations \ref{eq:even} and \ref{eq:odd} describe particles of opposite helicity. However, this is not exactly the case, because each of Equations \ref{eq:even} and \ref{eq:odd} admit solutions of both positive and negative helicity. For instance, if $\psi$ is a solution to Equation \ref{eq:even}, then $-I \psi$ is a solution to the same equation with opposite charge and helicity. The characteristic quantity that distinguishes between Equations \ref{eq:even} and \ref{eq:odd} is the ``projection'' of charge onto helicity, which one can see by inspecting Equations \ref{eq:even} and \ref{eq:odd}.
+  At first glance, it appears that Equations \ref{eq:even} and \ref{eq:odd} describe particles of opposite helicity. However, this is not exactly the case, because Equations \ref{eq:even} and \ref{eq:odd} each admit solutions with both positive and negative helicity. For instance, if $\psi$ is a solution to Equation \ref{eq:even}, then $I \psi$ is a solution to the same equation with opposite charge and helicity. The characteristic quantity that distinguishes between Equations \ref{eq:even} and \ref{eq:odd} is the ``projection'' of charge onto helicity, which one can see by inspecting Equations \ref{eq:even} and \ref{eq:odd}.
 
-  This is an example of a conjugation: a mapping between solutions to an equation. The most important conjugations are charge (C), parity (P), and time reversal (T) conjugations. Combined CPT symmetry is a fundamental symmetry, the violation of which would indicate a violation of Lorentz invariance. For this reason, T-symmetry is often denoted CP-symmetry, since a violation of one would imply a violation of the other as long as Lorentz symmetry is not violated.
+  This is an example of a conjugation: a mapping between solutions to an equation. The most important conjugations are charge (C), parity (P), and time reversal (T) conjugations. Combined CPT symmetry is a fundamental symmetry, the violation of which would indicate a violation of Lorentz invariance.
 
-  While there do exist formal charge and time reversal conjugations to Equation \ref{eq:full}, they are not grade preserving, and so conjugations of solutions to Equation \ref{eq:even} are solutions to Equation \ref{eq:odd}. This is similar to how parity is a symmetry of the Dirac equation, but not the Weyl equations.
-
-  These conjugations are given by
+  For general multivector solutions, these conjugations are given by
 
   \begin{align}
-    \hat C \psi : \psi \mapsto \psi \gamma_1 &\iff eA \mapsto - eA \label{eq:charge}\\
-    \hat P \psi : \psi(x) \mapsto \overline \psi(\overline x) &\iff \nabla \mapsto \overline \nabla, eA(x) \mapsto e\overline A(\overline x), \text{ and } p_0 \mapsto \overline p_0 \label{eq:parity}\\
-    \hat T \psi : \psi(x) \mapsto -I \overline \psi(-\overline x) \gamma_1 &\iff \nabla \mapsto \overline\nabla, eA(x) \mapsto -e\overline A(-\overline x), \text{ and } p_0 \mapsto - \overline p_0.\label{eq:time}
+    \hat C \psi = \psi \gamma_1 &\iff eA \mapsto - eA \label{eq:charge}\\
+    \hat P \psi = \overline \psi(\overline x) &\iff \nabla \mapsto \overline \nabla, eA(x) \mapsto e\overline A(\overline x), \text{ and } p_0 \mapsto \overline p_0 \label{eq:parity}\\
+    \hat T \psi = -I \overline \psi(-\overline x) \gamma_1 &\iff \nabla \mapsto \overline\nabla, eA(x) \mapsto -e\overline A(-\overline x), \text{ and } p_0 \mapsto - \overline p_0.\label{eq:time}
   \end{align}
 
-  Parity is grade preserving, and of course, so is the combined CPT conjugation, given by
+  Parity and the combined CPT conjugation
 
   \begin{equation}
-    \psi(x) \mapsto -I \psi(-x) \iff A(x) \mapsto A(-x) \text{ and } p_0 \mapsto -p_0. \label{eq:cpt}
+    \hat C \hat P \hat T \psi(x) = -I \psi(-x) \iff A(x) \mapsto A(-x) \text{ and } p_0 \mapsto -p_0 \label{eq:cpt}
   \end{equation}
 
-  The mapping $p_0 \mapsto -p_0$ is equivalent to the mappings $I \sigma_3 \mapsto - I \sigma_3$ and $e A \mapsto - e A$, which change spin (helicity) and charge. However, charge and time reversal conjugations are not grade preserving. This means that charge and time reversal conjugations are not well defined for Equations \ref{eq:even} and \ref{eq:odd}.
+  are grade preserving conjugations and so apply directly to $\psi_+$ and $\psi_-$ in Equation \ref{eq:even} and \ref{eq:odd}. However, charge and time reversal conjugations swap even and odd parts of $\psi$ and so transform $\psi_+ = \langle \psi \rangle_+$ and $\psi_- = \langle \psi \rangle_- \gamma_0$ differently.
 
-  The reason that charge and time reversal conjugations are grade preserving in Dirac theory is that Equation \ref{eq:g0conjugation} leaves the Dirac equation invariant. The situation here is different. There is no odd valued conjugation that leaves Equations \ref{eq:even} and \ref{eq:odd} invariant in general that would enable us to construct grade preserving charge and time reversal conjugations out of Equations \ref{eq:charge} and \ref{eq:time}, which one can confirm with a glance at the possible vector valued conjugations:
+  Under charge conjugation, $\langle \psi \rangle_\pm$ transform as
 
   \begin{align}
-    \psi \mapsto \psi \gamma_0 &\iff p_0 \mapsto \overline p_0 \\
-    \psi \mapsto \psi \gamma_{1,2} &\iff e A \mapsto - eA \\
-    \psi \mapsto \psi \gamma_3 &\iff p_0 \mapsto - \overline p_0\\
-    \psi \mapsto \gamma_0 \psi &\iff \nabla \mapsto \overline \nabla \text{ and } eA \mapsto - e \overline A.
+    \psi \mapsto \psi \gamma_1 \implies 
+    &\langle \psi \rangle_+ \mapsto \langle \psi \rangle_+ \gamma_1 = \langle \psi \gamma_1 \rangle_- \\
+    \text{ and } 
+    &\langle \psi \rangle_- \mapsto \langle \psi \rangle_- \gamma_1 = \langle \psi \gamma_1 \rangle_+.
   \end{align}
 
-  In the special case where the electromagnetic gauge field vanishes, charge conjugation is an odd valued conjugation that leaves Equation \ref{eq:full} unchanged, and so
+  So $\psi_+$ and $\psi_-$ transform as
 
   \begin{equation}
-    \psi \mapsto \psi \sigma_1,\label{eq:no-gauge-map}
+    \psi_+ \mapsto \psi_-' = \psi_+ \sigma_1
+    \text{ and } 
+    \psi_- \mapsto \psi_+' = - \psi_- \sigma_1,
   \end{equation}
 
-  provides a grade preserving map  between solutions to Equations \ref{eq:even} and \ref{eq:odd}. So when $A = 0$, time reversal conjugation is simply
+  where $\psi_+' \equiv \langle \psi' \rangle_+$ and $\psi_-' \equiv \langle \psi' \rangle_- \gamma_0$, which induces a sign change in both charge and helicity.
 
-  \begin{equation}
-    \hat T \psi : \psi(x) \mapsto -I \overline \psi(-\overline x) \iff \nabla \mapsto \overline\nabla \text{ and } p_0 \mapsto - \overline p_0.\label{eq:timeA0}
-  \end{equation}
+  Therefore, C, P, and T conjugations for $\psi_+$ and $\psi_-$ are given by
+
+  \begin{align}
+    \hat C \psi_\pm = \pm \psi_\pm \sigma_1 &\iff eA \mapsto - eA \text{ and } p_0 \mapsto \overline p_0 \label{eq:pmcharge}\\
+    \hat P \psi_\pm = \overline \psi_\pm(\overline x) &\iff \nabla \mapsto \overline \nabla, eA(x) \mapsto e\overline A(\overline x), \text{ and } p_0 \mapsto \overline p_0 \label{eq:pmparity}\\
+    \hat T \psi_\pm = \mp I \overline \psi_\pm(-\overline x) \sigma_1 &\iff \nabla \mapsto \overline\nabla, eA(x) \mapsto -e\overline A(-\overline x), \text{ and } p_0 \mapsto - p_0.\label{eq:pmtime}
+  \end{align}
 
   \section{Probability Current}\label{probability}
 
