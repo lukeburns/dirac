@@ -95,15 +95,17 @@
     \nabla \psi_\pm I \sigma_3 - e A \psi_\pm = \frac{1}{2} \omega_0 \psi (1 \pm \sigma_3)(1 \mp \sigma_3) \gamma_0 = 0,
   \end{equation}
 
-  using the fact that $(1 \pm \sigma_3) \gamma_0 = \gamma_0 (1 \mp \sigma_3)$.
+  using the facts that $I \sigma_3 (1 \pm \sigma_3) = (1 \pm \sigma_3) I \sigma_3$, $\gamma_0 (1 \pm \sigma_3) = (1 \mp \sigma_3)\gamma_0$, and $(1 \pm \sigma_3) (1 \mp \sigma_3) = 0$.
 
   However, $\psi_\mp$ is simply another solution to Equation \ref{eq:full} and \emph{not} a solution to the Dirac equation. This can be seen by multiplying Equation \ref{eq:full} on the right by by $(1 \mp \sigma_3)/2$, which gives
 
   \begin{equation}
-    \nabla \psi_\mp I \sigma_3 - e A \psi_\mp = \frac{1}{2} \omega_0 \psi(1 \pm \sigma_3)(1 \pm \sigma_3) \gamma_0 = \psi(1 \pm \sigma_3) \gamma_0.
+    \nabla \psi_\mp I \sigma_3 - e A \psi_\mp = \frac{1}{2} \omega_0 \psi(1 \pm \sigma_3)(1 \pm \sigma_3) \gamma_0 = \psi p_0,
   \end{equation}
 
-  Since the projection operator $(1 \pm \sigma_3)/2$ is not invertible, there is no way to recover solutions to Equation \ref{eq:full} from solutions to the massless Dirac equation. Hence, Equation \ref{eq:full} contains null solutions that are distinct from solutions to the massless Dirac equation and, furthermore, that these are the \emph{only} new solutions admitted by the extension. In this sense, the extension is minimal.
+  since $\frac{1}{2}(1 \pm \sigma_3)(1 \pm \sigma_3) = (1 \pm \sigma_3)$.
+
+  Since the projection operator $(1 \pm \sigma_3)/2$ is not invertible, there is no way to recover solutions to Equation \ref{eq:full} from solutions to the massless Dirac equation. Hence, Equation \ref{eq:full} contains null solutions that are distinct from solutions to the massless Dirac equation and, furthermore, we have shown that these are the \emph{only} new solutions admitted by the extension. In this sense, the extension is minimal.
 
   \section{Symmetries} \label{symmetries}
 
@@ -200,7 +202,7 @@
     \psi_- \mapsto \psi_+' = - \psi_- \sigma_1,
   \end{equation}
 
-  where $\psi_+' \equiv \langle \psi' \rangle_+$ and $\psi_-' \equiv \langle \psi' \rangle_- \gamma_0$, which induces a sign change in both charge and helicity.
+  where $\psi_-' \equiv \langle \psi' \rangle_- \gamma_0$ and $\psi_+' \equiv \langle \psi' \rangle_+$, which induces a sign change in both charge and helicity.
 
   Therefore, C, P, and T conjugations for $\psi_+$ and $\psi_-$ are given by
 
@@ -210,9 +212,9 @@
     \hat T \psi_\pm = \mp I \overline \psi_\pm(-\overline x) \sigma_1 &\iff \nabla \mapsto \overline\nabla, eA(x) \mapsto -e\overline A(-\overline x), \text{ and } p_0 \mapsto - p_0.\label{eq:pmtime}
   \end{align}
 
-  \section{Probability Current}\label{probability}
+  Note that if $A = 0$, then charge conjugation provides a map between solutions to Equations \ref{eq:even} and \ref{eq:odd}. Otherwise, they are distinct, and describe two distinct particles: one with correlated charge and helicity, one with anti-correlated charge and helicity.
 
-  In this section, we'll show that the probabilistic interpretation of Dirac theory can be extended by identifying $\rho p = \psi p_0 \widetilde \psi$ as a probability current.
+  \section{Probability Current}\label{probability}
 
   Essential to Dirac theory is its probabilistic intepretation, which depends on a conserved probability current $J$ satisfying the continuity equation
 
@@ -256,7 +258,54 @@
     \int d^3x \gamma_0 \cdot (\psi p_0 \widetilde \psi) = c. \label{eq:normalization}
   \end{equation}
 
-  for a constant $c$. Any choice of $c$ determines a probability current $J = \psi p_0 \widetilde \psi / c$ with a normalized probability density $J_0 = \gamma_0 \cdot J$. Selecting $c = \gamma_0 \cdot p_0$ may be a convenient choice, because it coincides with $\omega_0$ in the massless theory and aligns with the usual choice $m$ in the massive theory. Alternatively, there's nothing preventing us from choosing $c = 1$ and simply referring to $\rho p = \psi p_0 \widetilde \psi$ as the probability current.
+  for a constant $c$. Any choice of $c \not= 0$ determines a probability current $J = \psi p_0 \widetilde \psi / c$ with a normalized probability density $J_0 = \gamma_0 \cdot J$. Selecting $c = \gamma_0 \cdot p_0$ may be a convenient choice, because it coincides with $\omega_0$ in the massless theory and aligns with the usual choice $m$ in the massive theory. Alternatively, there's nothing preventing us from choosing $c = 1$ and simply referring to $\rho p = \psi p_0 \widetilde \psi$ as the probability current.
+
+  \section{Observables}
+
+  What is the appropriate definition of spin? The spin vector of hestenes and spin bivector of doran/lasenby are incompatible, due to duality factor. 
+
+  Why does Hestenes use a lightlike spin bivector? Is there a relation between this bivector and F below?
+
+  If I were to reverse engineer the process, following the strategy of Vaz, seeking a spinorial description of circularly polarized electromagnetic fields, would I end up with the same equation?
+    - This would contribute to the Vaz paper, which depended on invertibility.
+
+  That is, are all circularly polarized electromagnetic waves described via this equation?
+
+  Note other forms of the Equation \ref{eq:dirac}:
+
+  \begin{align}
+    \nabla \psi I \sigma_3 &= \rho^{1/2} R' p_0 = p \psi \\
+    \nabla \psi &= p s^{-1}\psi = I \sigma_3' p \psi = I p \psi \\
+    -I \nabla \psi &= \psi p_0 \\
+    &= \rho^{1/2}(x) e^{I \beta'(x)} R_0
+  \end{align}
+
+  which have different symmetries. In particular, the second form requires that the only kinematical part is due to $\rho^{1/2} e^{I \beta/2}$ (otherwise, there would be a bivector term in the derivative). This has fewer degrees of freedom than Equation \ref{eq:full}, doesn't it? $R_0$ is constant and can pick out any frequency for $p$. 
+
+  Gauging: 
+
+  \begin{align}
+    -I \nabla \psi &= p \psi.\\
+    \psi &\mapsto \psi e^{I \phi(x)} \\
+    &\implies\\
+    -I \nabla \psi' &= -I \nabla \psi e^{I \phi} - \nabla \phi \psi e^{I \phi}\\
+    &\implies
+    D \psi = -I \nabla \psi - eA \psi = p \psi,
+  \end{align}
+
+  where $A \mapsto A - \nabla \phi$.
+
+  If $\phi = \phi_e + I \phi_b$, then $A = A_e + I A_b$ gives
+
+  \begin{equation}
+    F = \langle \nabla A \rangle_2 = F_e + F_b = \nabla \wedge A_e + \nabla \cdot I A_b
+  \end{equation}
+
+  such that
+
+  \begin{equation}
+    \nabla F = J \equiv J_e + I J_b.
+  \end{equation}
 
   \section{Plane Waves} \label{waves}
 
@@ -282,7 +331,7 @@
     \psi^{(-)}_- = \psi^{(-)}_+ \sigma_1,
   \end{equation}
 
-  using the fact that $A=0$ and employing Equation \ref{eq:no-gauge-map}, which propagate in $-\vec p_0$ direction.
+  which propagate in $-\vec p_0$ direction.
 
   These solutions are similar to the plane wave solutions to the Dirac equation in that there are four of them, each of which is described by a Dirac (four component) spinor, and are unlike the right and left handed plane wave solutions to the massless Dirac equation, for which there are only two distinct solutions, each of which is given by a Weyl (two component) spinor. On the other hand, they are similar to Weyl plane waves, and unlike Dirac plane waves, in that their momentum is lightlike and their helicity is Lorentz invariant.
 
@@ -365,16 +414,10 @@
 
     \begin{align}
       \nabla F_\psi - e A F e_2 e_1
-      &= \rho p^2 e_2
+      &= \rho p^2 e_2.\label{eq:gaugedem}
     \end{align}
 
-    which gives
-
-    \begin{equation}
-      \nabla F_\psi - e A F_\psi e_2e_1 = \rho p^2 e_2.\label{eq:gaugedem}
-    \end{equation}
-
-    In the massless case, $A F_\psi e_2 e_1 = I A F_\psi$. This yields the equation 
+    In the massless case, $A F_\psi e_2 e_1 = I A F_\psi$ and $p^2 = 0$. This yields the equation 
 
     \begin{equation}
       \nabla F_\psi - e I A F_\psi = 0,
@@ -392,9 +435,9 @@
 
     An additional, more serious concern with Equation \ref{eq:gaugedem} in the massive case is that the current $\rho p^2 e_2$ is a \emph{spacelike} vector, because $e_2^2 = -1$. This is arguably non-physical.\footnote{Todo: Does $\nabla \cdot (\rho p^2 e_2) = 0$? If not, that would definitively render the massive case useless.}
 
-  \section{Conclusion}
+  % \section{Conclusion}
 
-  WIP. What are reasons to expect or not expect such a pair of particles to exist? Could this be substituted into Hestenes's electron model, that uses a massless charged particle?
+  % We have not investigated the likelihood of the existence of a massless charge
 
   \newpage
 
