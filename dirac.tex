@@ -36,8 +36,10 @@
   The extension including the electromagnetic gauge field can be written
 
   \begin{equation}
-    \nabla \psi I \sigma_3 - e A \psi = \psi p_0. \label{eq:full}
+    \nabla \psi I \sigma_3 - e A \psi = \psi p_0, \label{eq:full}
   \end{equation}
+
+  where $p_0$ is constant.
 
   In Section \ref{constraints}, we'll work out the physical constraints on $p_0$ and show that Equation \ref{eq:full} admits the usual solutions to the Dirac equation and a new class of null solutions, where $p_0^2 = 0$ but $\psi p_0 \not = 0$. Then we'll work out the symmetries of Equation \ref{eq:full} in Section \ref{symmetries}. We will show that a probablistic interpretation extends to Equation \ref{eq:full} in Section \ref{probability} and present plane wave solutions in Section \ref{waves}. Lastly, an apparent similarity to circularly polarized electromagnetic waves is formalized in Section \ref{electromagnetism}. We will set $\hbar = c = 1$ throughout.
 
@@ -56,7 +58,7 @@
   That is, if $p_0$ is perpendicular to the plane $I \sigma_3$, so $p_0$ is of the form
 
   \begin{equation}
-    p_0 = E_0 \gamma_0 \pm |\vec p_0| \gamma_3,\label{eq:p_0}
+    p_0 \equiv p_0^\pm = E_0 \gamma_0 \pm |\vec p_0| \gamma_3,\label{eq:p_0}
   \end{equation} 
 
   where $E_0$ and $\vec p_0 = \pm |\vec p_0| \gamma_3 \gamma_0$ are constant.
@@ -131,9 +133,9 @@
     \nabla \psi' I \sigma_3 - e A \psi' = \psi' \overline p_0, \label{eq:minus}
   \end{equation}
 
-  where $\overline M \equiv \gamma_0 M\gamma_0$ is minus the reflection of any multivector $M$ across the $\gamma_0$ axis.
+  where $\overline M \equiv \gamma_0 M\gamma_0$ is minus the reflection of any multivector $M$ across the $\gamma_0$ axis. That is to say, Equation \ref{eq:full} distinguishes between even and odd fields. 
 
-  That is, Equation \ref{eq:full} distinguishes between even and odd fields. In general, $\psi$ is a full multivector that can be decomposed into
+  In general, $\psi$ is a full multivector that can be decomposed into
 
   \begin{equation}
     \psi = \langle \psi \rangle_+ + \langle \psi \rangle_-,
@@ -145,7 +147,7 @@
     \nabla \langle \psi \rangle_\pm I \sigma_3 - e A \langle \psi \rangle_\pm = \langle \psi \rangle_\pm p_0,\label{eq:decoupled}
   \end{equation}
 
-  because $\nabla$, $A$, and $p_0$ are all odd valued. If, say, the gauge field $A$ were even valued, then $\langle \psi \rangle_+$ and $\langle \psi \rangle_-$ would be coupled.\footnote{This raises the interesting possibility of having a spinor valued (i.e. fermionic) gauge field.}
+  because $\nabla$, $A$, and $p_0$ are all odd valued. If, say, the gauge field $A$ were even valued, then $\langle \psi \rangle_+$ and $\langle \psi \rangle_-$ would be coupled.\footnote{This raises the interesting possibility of having a spinor valued (i.e. fermionic) gauge field. The idea of a spinor valued gauge field came to my attention due to V\'aclav Zatloukal in private communications, independently of the content of this paper.}
 
   Equations \ref{eq:decoupled} can be re-expressed in terms of two equations involving only spinors. Doing this will allow for an straightforward comparison to Dirac theory. If $\psi_+ = \langle \psi \rangle_+$ is a solution to
 
@@ -165,7 +167,7 @@
     \nabla \psi_- I \sigma_3 - e A \psi_- = \omega_0 \psi_- (1 - \sigma_3) \gamma_0,\label{eq:odd}
   \end{equation}
 
-  but these are precisely Equation \ref{eq:full} for each sign of $p_0$.
+  and these are precisely Equation \ref{eq:full} for each sign of $p_0$.
 
   At first glance, it appears that Equations \ref{eq:even} and \ref{eq:odd} describe particles of opposite helicity. However, this is not exactly the case, because Equations \ref{eq:even} and \ref{eq:odd} each admit solutions with both positive and negative helicity. For instance, if $\psi$ is a solution to Equation \ref{eq:even}, then $I \psi$ is a solution to the same equation with opposite charge and helicity. The characteristic quantity that distinguishes between Equations \ref{eq:even} and \ref{eq:odd} is the ``projection'' of charge onto helicity, which one can see by inspecting Equations \ref{eq:even} and \ref{eq:odd}.
 
@@ -260,71 +262,75 @@
     \int d^3x \gamma_0 \cdot (\psi p_0 \widetilde \psi) = c. \label{eq:normalization}
   \end{equation}
 
-  for a constant $c$. Any choice of $c \not= 0$ determines a probability current $J = \psi p_0 \widetilde \psi / c$ with a normalized probability density $J_0 = \gamma_0 \cdot J$. Selecting $c = \gamma_0 \cdot p_0$ may be a convenient choice, because it coincides with $\omega_0$ in the massless theory and aligns with the usual choice $m$ in the massive theory. Alternatively, there's nothing preventing us from choosing $c = 1$ and simply referring to $\rho p = \psi p_0 \widetilde \psi$ as the probability current.
+  for a constant $c$. Any choice of $c \not= 0$ determines a probability current $J = \psi p_0 \widetilde \psi / c$ with a normalized probability density $J_0 = \gamma_0 \cdot J$. Selecting $c = \gamma_0 \cdot p_0$ may be a convenient choice, because it coincides with $\omega_0$ when $p_0^2 = 0$ and aligns with the usual choice $m$ when $p_0^2 > 0$. Alternatively, there's nothing preventing us from choosing $c = 1$ and simply referring to $\rho p = \psi p_0 \widetilde \psi$ as the probability current.
 
-  \section{Observables}
+  % \section{Observables}
 
-  What is the appropriate definition of spin? The spin vector of hestenes and spin bivector of doran/lasenby are incompatible, due to duality factor. 
+  % What is the appropriate definition of spin? The spin vector of hestenes and spin bivector of doran/lasenby are incompatible, due to duality factor. 
 
-  Why does Hestenes use a lightlike spin bivector? Is there a relation between this bivector and F below?
+  % Why does Hestenes use a lightlike spin bivector? Is there a relation between this bivector and F below?
 
-  If I were to reverse engineer the process, following the strategy of Vaz, seeking a spinorial description of circularly polarized electromagnetic fields, would I end up with the same equation?
-    - This would contribute to the Vaz paper, which depended on invertibility.
+  % If I were to reverse engineer the process, following the strategy of Vaz, seeking a spinorial description of circularly polarized electromagnetic fields, would I end up with the same equation?
+  %   - This would contribute to the Vaz paper, which depended on invertibility.
 
-  That is, are all circularly polarized electromagnetic waves described via this equation?
+  % That is, are all circularly polarized electromagnetic waves described via this equation?
 
-  Note other forms of the Equation \ref{eq:dirac}:
+  % Note other forms of the Equation \ref{eq:dirac}:
 
-  \begin{align}
-    \nabla \psi I \sigma_3 &= \rho^{1/2} R' p_0 = p \psi \\
-    \nabla \psi &= p s^{-1}\psi = I \sigma_3' p \psi = I p \psi \\
-    -I \nabla \psi &= \psi p_0 \\
-    &= \rho^{1/2}(x) e^{I \beta'(x)} R_0
-  \end{align}
+  % \begin{align}
+  %   \nabla \psi I \sigma_3 &= \rho^{1/2} R' p_0 = p \psi \\
+  %   \nabla \psi &= p s^{-1}\psi = I \sigma_3' p \psi = I p \psi \\
+  %   -I \nabla \psi &= \psi p_0 \\
+  %   &= \rho^{1/2}(x) e^{I \beta'(x)} R_0
+  % \end{align}
 
-  which have different symmetries. In particular, the second form requires that the only kinematical part is due to $\rho^{1/2} e^{I \beta/2}$ (otherwise, there would be a bivector term in the derivative). This has fewer degrees of freedom than Equation \ref{eq:full}, doesn't it? $R_0$ is constant and can pick out any frequency for $p$. 
+  % which have different symmetries. In particular, the second form requires that the only kinematical part is due to $\rho^{1/2} e^{I \beta/2}$ (otherwise, there would be a bivector term in the derivative). This has fewer degrees of freedom than Equation \ref{eq:full}, doesn't it? $R_0$ is constant and can pick out any frequency for $p$. 
 
-  Gauging: 
+  % Gauging: 
 
-  \begin{align}
-    -I \nabla \psi &= p \psi.\\
-    \psi &\mapsto \psi e^{I \phi(x)} \\
-    &\implies\\
-    -I \nabla \psi' &= -I \nabla \psi e^{I \phi} - \nabla \phi \psi e^{I \phi}\\
-    &\implies
-    D \psi = -I \nabla \psi - eA \psi = p \psi,
-  \end{align}
+  % \begin{align}
+  %   -I \nabla \psi &= p \psi.\\
+  %   \psi &\mapsto \psi e^{I \phi(x)} \\
+  %   &\implies\\
+  %   -I \nabla \psi' &= -I \nabla \psi e^{I \phi} - \nabla \phi \psi e^{I \phi}\\
+  %   &\implies
+  %   D \psi = -I \nabla \psi - eA \psi = p \psi,
+  % \end{align}
 
-  where $A \mapsto A - \nabla \phi$.
+  % where $A \mapsto A - \nabla \phi$.
 
-  If $\phi = \phi_e + I \phi_b$, then $A = A_e + I A_b$ gives
+  % If $\phi = \phi_e + I \phi_b$, then $A = A_e + I A_b$ gives
 
-  \begin{equation}
-    F = \langle \nabla A \rangle_2 = F_e + F_b = \nabla \wedge A_e + \nabla \cdot I A_b
-  \end{equation}
+  % \begin{equation}
+  %   F = \langle \nabla A \rangle_2 = F_e + F_b = \nabla \wedge A_e + \nabla \cdot I A_b
+  % \end{equation}
 
-  such that
+  % such that
 
-  \begin{equation}
-    \nabla F = J \equiv J_e + I J_b.
-  \end{equation}
+  % \begin{equation}
+  %   \nabla F = J \equiv J_e + I J_b.
+  % \end{equation}
 
   \section{Plane Waves} \label{waves}
 
-  Plane wave solutions for Equation \ref{eq:even} are given by
+  Plane wave solutions for Equation \ref{eq:even} can be written
 
   \begin{equation}
     \nabla \psi_+ I \sigma_3 = \pm p \psi_+,\label{eq:plane}
   \end{equation}
-  where $p = R p_0 \widetilde R$ is constant and $\omega = p \cdot \gamma_0 > 0$.
+  where $p = \omega_0 R (\gamma_0 + \gamma_3) \widetilde R$ is constant and $\omega = p \cdot \gamma_0 > 0$.
 
-  This implies that $\rho$ is constant, $\beta = 0, \pi$, and $R = R_0 e^{\mp I \sigma_3 (p \cdot x + c)}$, where $R_0$ is constant and $c$ is a monogenic phase shift satisfying $\nabla c(x) = 0$. For every $\rho$ and $R_0$, which completely determine the constant probability current $\rho p = \psi p_0 \widetilde \psi = \rho R_0 p_0 \widetilde R_0$, following the conventions of \cite{gap}, we have two solutions (taking $c = 0$)
+  For any solution $\psi$, $\rho$ is constant, $\beta = 0$ or $\beta = \pi$, and $R = R_0 e^{\mp I \sigma_3 (p \cdot x + c)}$, where $R_0$ is constant and $c$ is a monogenic phase shift satisfying $\nabla c(x) = 0$. For every $\rho$ and $R_0$, which completely determine the constant probability current $\rho p = \psi p_0 \widetilde \psi = \rho R_0 p_0 \widetilde R_0$, we have two solutions (taking $c = 0$)
 
   \begin{equation}
     \psi^{(+)}_+(x) = \rho^{1/2} R_0 e^{- I \sigma_3 p \cdot x} \text { and } \psi^{(-)}_+(x) = \rho^{1/2} I R_0 e^{I \sigma_3 p \cdot x},
   \end{equation} 
 
-  which are CPT conjugates of one another. $\psi^{(+)}_+$ and $\psi^{(-)}_+$ describe particles propagating in the $\vec p_0 = p \wedge \gamma_0$ direction (in the $\gamma_0$ frame) with opposite spin, or helicity.
+  which are CPT conjugates of one another. $\psi^{(+)}_+$ and $\psi^{(-)}_+$ describe particles propagating in the $\vec p_0 = p \wedge \gamma_0$ direction (in the $\gamma_0$ frame) with opposite spin, given by 
+
+  \begin{equation}
+    S = \psi I \sigma_3 \widetilde \psi = (\pm)\rho R I \sigma_3 \widetilde R.
+  \end{equation}
 
   There are two corresponding solutions for Equation \ref{eq:odd} of the form
 
@@ -335,9 +341,9 @@
 
   which propagate in $-\vec p_0$ direction.
 
-  These solutions are similar to the plane wave solutions to the Dirac equation in that there are four of them, each of which is described by a Dirac (four component) spinor, and are unlike the right and left handed plane wave solutions to the massless Dirac equation, for which there are only two distinct solutions, each of which is given by a Weyl (two component) spinor. On the other hand, they are similar to Weyl plane waves, and unlike Dirac plane waves, in that their momentum is lightlike and their helicity is Lorentz invariant.
+  These solutions are similar to the plane wave solutions to the Dirac equation in that there are four of them, each of which is described by a Dirac (four component) spinor. On the other hand, they are similar to Weyl plane waves, in that their momentum is lightlike and their helicity is Lorentz invariant.
 
-  The main qualitative feature that distinguish $\psi^{(\pm)}_{\pm}$ from Weyl plane waves is that their (constant) spin plane 
+  The main qualitative feature that distinguish $\psi^{(\pm)}_{\pm}$ from Weyl plane waves is that their spin plane 
 
   \begin{equation}
     \rho S = \psi I \sigma_3 \widetilde \psi = (\pm) \rho  R I \sigma_3 \widetilde R = (\pm) \rho R_0 I \sigma_3 \widetilde R_0
@@ -349,9 +355,9 @@
     e_i = R \gamma_i \widetilde R = R_0 \gamma_i \widetilde R_0 e^{\mp S 2 p \cdot x}
   \end{equation} 
 
-  rotate at a frequency $2 \omega$ in this plane, analogous to the rotation of electric and magnetic fields of circularly polarized electromagnetic waves.
+  rotate at a frequency $2 \omega$ in this plane, analogous to the zitter of Dirac theory, which describes rotation in the spin plane at a frequency $2 m_e c^2 / \hbar$ (where $m_e$ is the electron mass), and identically to the rotation of electric and magnetic fields of circularly polarized electromagnetic waves.
 
-  In fact, this analogy can be made precise. Left and right circularly polarized electromagnetic waves have the form\cite{gap}
+  This analogy to electromagnetic waves can be made precise. Left and right circularly polarized electromagnetic waves have the form\cite{gap}
 
     \begin{equation}
       F_\pm = k n \alpha e^{\mp I k \cdot x} = A k n e^{\pm I \hat k (k \cdot x + c)},\label{eq:emwaves}
@@ -383,15 +389,17 @@
       \nabla F_\psi = 0 \text { and } F_\psi^2 = 0
     \end{equation}
 
-    which are the usual specifications of circularly polarized electromagnetic fields. In fact, it will be shown in the next section that Equation \ref{eq:emfield} satisfies Maxwell's equations for all massless \emph{and} massive solutions $\psi$ (although, with a disclaimer) to Equation \ref{eq:dirac}. Furthermore, when $A \not= 0$, $A$ plays the same role as the gauge field that arises in a gauging duality symmetry of Maxwell's equations.
+    which are the usual specifications of circularly polarized electromagnetic fields.
 
-    The only discrepancy is that $e_1$ rotates with twice the frequency, so it may be worth making the replacement $p_0 \mapsto \frac{1}{2} p_0$ and taking the equation
+    In fact, it will be shown in the next section that $F_\psi$ as given by Equation \ref{eq:emfield} satisfies Maxwell's equations for all massless \emph{and} massive solutions $\psi$ to Equation \ref{eq:dirac} (although, with a disclaimer in the massive case). Furthermore, when $A \not= 0$ in the massless case, $A$ plays the same role as the gauge field that arises in a gauging duality symmetry of Maxwell's equations.
+
+    The only discrepancy is that $e_1$ rotates with twice the frequency of the corresponding electromagnetic wave, so it may be worth making the replacement $p_0 \mapsto \frac{1}{2} p_0$ and taking the equation
 
     \begin{equation}
       \nabla \psi I \sigma_3 = \frac{1}{2} \psi p_0,\label{eq:free-half}
     \end{equation}
 
-    as primary, so that the frequency of rotation of $e_1$ is given by $\omega$.
+    as primary, so that the frequency of rotation of $e_1$ is given by $\omega$. This amounts to treating spinor solutions as parameterizations of an electromagnetic field $F_\psi$. Doing this will formalize David Hestenes's identification of the zitter rotation of Dirac theory with circulating charge and raises complications with such an identification.
 
     \section{An Electromagnetic Bilinear Covariant}\label{electromagnetism}
 
@@ -404,7 +412,9 @@
       &= \rho p^2 e_2.
     \end{align}
 
-    The current term vanishes for massless solutions precisely because $p^2 = 0$ and does not vanish for massive solutions because $p^2 \not= 0$. Additionally, we see that the contraction of $p$ with itself due to the derivative is precisely what ensures that the current $J_\psi$ is vector valued and so describes an electromagnetic field free from magnetic sources.
+    The current term vanishes for massless solutions precisely because $p^2 = 0$ and does not vanish for massive solutions because $p^2 \not= 0$. Of course, $\nabla \cdot J_\psi = 0$, because $\nabla \wedge F_\psi = 0$.
+
+    When $p^2 \not= 0$, $J_\psi$ describes a circulating electrical current density, which is consistent with Hestenes' identifcation of zitter with circulation of charge. However, the fact that this current is spacelike means that, under the usual interpretation of a current, it propagates at superluminal speeds, compromising its physical integrity.
 
     In the presence of an electromagnetic gauge field, if $\psi$ satisfies
 
@@ -415,31 +425,35 @@
     then
 
     \begin{align}
-      \nabla F_\psi - e A F e_2 e_1
+      \nabla F_\psi - e A F_\psi e_2 e_1
       &= \rho p^2 e_2.\label{eq:gaugedem}
     \end{align}
 
-    In the massless case, $A F_\psi e_2 e_1 = I A F_\psi$ and $p^2 = 0$. This yields the equation 
+    In the massless case, $A F_\psi e_2 e_1 = \pm I A F_\psi$ and $p^2 = 0$. This yields the equation 
 
     \begin{equation}
-      \nabla F_\psi - e I A F_\psi = 0,
+      \nabla F_\psi \mp e I A F_\psi = 0,\label{eq:massless-gauged}
     \end{equation}
 
-    which is identical to the gauged Maxwell equations in vacuum.\cite{duality}\cite{malik}\cite{tiwari}
+    which is identical to the gauged Maxwell equations in vacuum,\cite{duality}\cite{malik}\cite{tiwari} and reinforces the suggestion of \cite{duality} to identify the gauge field $A$ with an electromagnetic potential. \footnote{The role of the coupling constant needs to be worked out.}
 
-    The massive analog of these equations is \cite{tiwari}
+    The massive analog of Equation \ref{eq:massless-gauged} is \cite{duality} \cite{tiwari}
 
     \begin{equation}
-      \nabla F - e I A F = J,
+      \nabla F - e I A F = J,\label{eq:gauged-duality}
     \end{equation}
 
-    but this is distinct from Equation \ref{eq:gaugedem}. 
+    but this is different from Equation \ref{eq:gaugedem}, which possesses the notable distinction that $J_\psi = \rho p^2 e_2$ is invariant under gauge transformations $\psi \mapsto \psi e^{I \sigma_3 \phi}$, unlike Equation \ref{eq:gauged-duality} which transforms under $F \mapsto F e^{I \phi}$ and $J \mapsto J e^{I \phi}$.
 
-    An additional, more serious concern with Equation \ref{eq:gaugedem} in the massive case is that the current $\rho p^2 e_2$ is a \emph{spacelike} vector, because $e_2^2 = -1$. This is arguably non-physical.\footnote{Todo: Does $\nabla \cdot (\rho p^2 e_2) = 0$? If not, that would definitively render the massive case useless.}
+  Lastly, a distinction must be made between the currents $J = \psi p_0 \widetilde \psi$ and $J_\psi = \nabla F_\psi = \nabla (\psi p_0 \gamma_1 \widetilde \psi)$. In the massless case, the former describes the lightlike probability current of the fermions described in this paper, whereas the latter vanishes and is associated with a circularly polarized electromagnetic waves given by $F_\psi$. In the massive case, the former describes a timelike probability current and the latter describes a spacelike current associated with $F_\psi$. 
 
-  % \section{Conclusion}
+  It should be noted that there exists an antiderivative $F$ of $J$ such that $\nabla F = J$. It has been shown in \cite{continuity-equation} that, under suitable boundary conditions, this antiderivative is a bivector (i.e. an electromagnetic field, when suited with the appropriate units).
 
-  % We have not investigated the likelihood of the existence of a massless charge
+  \section{Conclusion}
+
+  It would be interesting to know whether the massless particles described here are compatible with Hestenes' model of the electron as a lightlike particle with electromagnetic interactions, trapped in helical motion.\cite{zitter} If so, perhaps the gauge field provides a constraint force.
+
+  Furthermore, the zitter mechanism that motivated Hestenes to identify the electron with a circulating current would suggest, by the same reasoning, that massless solutions are intimately related to electromagnetic waves. Although, a direct identification runs straight into the Pauli exclusion principle.
 
   \newpage
 
@@ -492,6 +506,16 @@
       \emph{Axion electrodynamics in the duality perspective}
       Modern Physics Letters A.
       Vol. 30, No. 40 (2015).
+
+    \bibitem{continuity-equation}
+      L. Burns.
+      \emph{The Continuity Equation Implies Maxwell's Equations}.
+      \url{https://github.com/lukeburns/maxwells-equations}. (Work in Progress).
+
+    \bibitem{zitter}
+      D. Hestenes.
+      \emph{Zitterbewegung in Quantum Mechanics --- a research program}.
+      \url{https://arxiv.org/abs/0802.2728}.
 
   \end{thebibliography}
 
