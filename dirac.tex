@@ -1,19 +1,27 @@
-\documentclass{article}
-\usepackage[margin=1.2in]{geometry}
+\documentclass[twocolumn]{article}
+\usepackage[margin=.7in]{geometry}
 \usepackage{amsmath}
+\usepackage{sectsty}
 \usepackage{amsfonts}
 \usepackage{multicol}
 \usepackage{hyperref}
 
+\sectionfont{\fontsize{12}{15}\selectfont}
+\renewcommand{\abstractname}{\vspace{-\baselineskip}}
+
 \title{An Extension of the Dirac Equation}
 \author{Luke Burns}
+\date{\small \today\vspace{-5ex}}
 
 \begin{document}
+\twocolumn[
+\begin{@twocolumnfalse}
   \maketitle
 
   \abstract{A minimal extension of the Dirac equation is shown to describe a pair of massless, electrically charged fermions. Solutions exhibit rotation in the particle's spin plane, analogous to the zitterbewegung of massive Dirac theory and identical to electric and magnetic fields of circularly polarized electromagnetic waves.}
 
-  \paragraph{Work In Progress} This paper is a work in progress, and is being openly developed on Github at \url{https://github.com/lukeburns/dirac}. Contributions are warmly welcomed, whether by means of opening an issue or pull request.
+  \paragraph{Work In Progress} This paper is a work in progress and is being openly developed on Github at \url{https://github.com/lukeburns/dirac}. Contributions are warmly welcomed, whether by means of opening an issue or pull request. \\
+\end{@twocolumnfalse} ]
 
   \section{Introduction}
 
@@ -177,8 +185,8 @@
 
   \begin{align}
     \hat C \psi = \psi \gamma_1 &\iff eA \mapsto - eA \label{eq:charge}\\
-    \hat P \psi = \overline \psi(\overline x) &\iff \nabla \mapsto \overline \nabla, eA(x) \mapsto e\overline A(\overline x), \text{ and } p_0 \mapsto \overline p_0 \label{eq:parity}\\
-    \hat T \psi = -I \overline \psi(-\overline x) \gamma_1 &\iff \nabla \mapsto \overline\nabla, eA(x) \mapsto -e\overline A(-\overline x), \text{ and } p_0 \mapsto - \overline p_0.\label{eq:time}
+    \hat P \psi = \overline \psi(\overline x) &\iff \nabla \mapsto \overline \nabla, eA(x) \mapsto e\overline A(\overline x), \notag \\ & \hspace{3em}\text{and } p_0 \mapsto \overline p_0 \label{eq:parity}\\
+    \hat T \psi = -I \overline \psi(-\overline x) \gamma_1 &\iff \nabla \mapsto \overline\nabla, eA(x) \mapsto -e\overline A(-\overline x), \notag \\ & \hspace{3em} \text{and } p_0 \mapsto - \overline p_0.\label{eq:time}
   \end{align}
 
   Parity and the combined CPT conjugation
@@ -211,9 +219,9 @@
   Therefore, C, P, and T conjugations for $\psi_+$ and $\psi_-$ are given by
 
   \begin{align}
-    \hat C \psi_\pm = \pm \psi_\pm \sigma_1 &\iff eA \mapsto - eA \text{ and } p_0 \mapsto \overline p_0 \label{eq:pmcharge}\\
-    \hat P \psi_\pm = \overline \psi_\pm(\overline x) &\iff \nabla \mapsto \overline \nabla, eA(x) \mapsto e\overline A(\overline x), \text{ and } p_0 \mapsto \overline p_0 \label{eq:pmparity}\\
-    \hat T \psi_\pm = \mp I \overline \psi_\pm(-\overline x) \sigma_1 &\iff \nabla \mapsto \overline\nabla, eA(x) \mapsto -e\overline A(-\overline x), \text{ and } p_0 \mapsto - p_0.\label{eq:pmtime}
+    \hat C \psi_\pm = \pm \psi_\pm \sigma_1 &\iff eA \mapsto - eA \text{ and } p_0 \mapsto \overline p_0. \label{eq:pmcharge}\\
+    \hat P \psi_\pm = \overline \psi_\pm(\overline x) &\iff \nabla \mapsto \overline \nabla, eA(x) \mapsto e\overline A(\overline x), \notag \\ & \hspace{3em} \text{and } p_0 \mapsto \overline p_0. \label{eq:pmparity} \\
+    \hat T \psi_\pm = \mp I \overline \psi_\pm(-\overline x) \sigma_1 &\iff \nabla \mapsto \overline\nabla, eA(x) \mapsto -e\overline A(-\overline x), \notag \\ & \hspace{3em} \text{and } p_0 \mapsto - p_0.\label{eq:pmtime}
   \end{align}
 
   Note that if $A = 0$, then charge conjugation provides a map between solutions to Equations \ref{eq:even} and \ref{eq:odd}. Otherwise, they are distinct, and describe two distinct particles: one with correlated charge and helicity, one with anti-correlated charge and helicity.
